@@ -1,0 +1,23 @@
+p{
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: large;
+}
+strong{
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: xx-large;
+}
+body{
+    background: linear-gradient(209deg, rgba(249,249,247,1) 0%, rgba(234,226,225,1) 63%, rgba(237,221,221,1) 78%);
+}
+button{
+    float: right;
+    border: 0;
+    background-color: none;
+    font-size: large;
+    padding: 1%;
+}
+button:hover{
+    background-color: crimson;
+}
