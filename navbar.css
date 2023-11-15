@@ -1,0 +1,13 @@
+.nav-link a{
+    border: 0;
+    background-color: none;
+    padding: 2%;
+
+}
+.nav-link:hover{
+    color: crimson;
+}
+#nav{
+    font-family: sans-serif;
+    font-weight: 500;
+}
