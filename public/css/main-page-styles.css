@@ -1,0 +1,86 @@
+.background-img-main {
+    /* margin-top: 0.2em; */
+    background-image: url('/images/health_panel.jpg');
+    height: 90vh;
+    background-size: cover;
+    /* border-top: 1px solid black; */
+}
+
+h1 {
+    color: red;
+}
+
+.navbar-brand img {
+    max-width: 4em;
+    height: 2.7em;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+
+}
+
+.nav-link:hover {
+    color: red;
+}
+
+.main-text p {
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    flex-direction: column;
+    font-size: 4.5em;
+}
+
+.main-text p:nth-child(1) {
+    margin-top: 2em;
+}
+
+.main-text p:nth-child(2) {
+    margin-left: o.3em;
+}
+
+.main-description {
+    font-size: 0.25em;
+    display: flex;
+    justify-content: space-around;
+}
+
+.main-text .btn {
+    font-size: 1.34em;
+    padding: 0.2em 1em;
+
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+}
+
+.features p {
+    font-size: 1.1em;
+}
+
+.features span {
+    color: rgb(57, 156, 223);
+    font-size: 1.8em;
+}
+
+
+.model_info {
+    background: rgb(249, 249, 247);
+    background: linear-gradient(29deg, rgba(249, 249, 247, 1) 0%, rgba(234, 226, 225, 1) 63%, rgba(237, 221, 221, 1) 78%);
+}
+
+.model_info h2 {
+    color: rgb(34, 139, 230);
+    font-size: 2.5em;
+}
+
+.model_info span {
+    font-size: 3em;
+    color: red;
+}
+
+.model_info img {
+    height: 80%;
+}
