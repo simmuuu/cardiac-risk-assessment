@@ -1,0 +1,24 @@
+p{
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: x-large;
+}
+strong{
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: xx-large;
+}
+footer{
+    margin-left: 40px;
+}
+body{
+    background: linear-gradient(209deg, rgba(249,249,247,1) 0%, rgba(234,226,225,1) 63%, rgba(237,221,221,1) 78%);
+}
+h4{
+    font-size: xx-large;
+    font-weight: 700;
+    margin: 10px;
+}
+h4::first-letter{
+    font-size: 200%;
+}
