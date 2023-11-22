@@ -1,14 +1,66 @@
+* {
+    font-family: "Urbanist", sans-serif;
+}
+
+body::-webkit-scrollbar {
+    /* to remove scroll-bar from the side */
+    overflow: -moz-scrollbars-none;
+    width: 0 !important
+}
+
+
+
+
+
 .background-img-main {
-    /* margin-top: 0.2em; */
     background-image: url('/images/health_panel.jpg');
     height: 90vh;
     background-size: cover;
-    /* border-top: 1px solid black; */
 }
 
-h1 {
-    color: red;
+
+
+
+
+#sidebar {
+    color: white;
+    background-color: rgb(245, 134, 52);
+    position: fixed;
+
+    width: 89px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-size: small;
+
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    top: 50vh;
+    /* left: 94.2%; */
+    left: 99.2%;
+
+    transition: left 0.3s ease;
+
 }
+
+#sidebar:hover {
+    left: 94.2%;
+}
+
+
+#sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+
+nav {
+    font-weight: bold;
+}
+
 
 .navbar-brand img {
     max-width: 4em;
@@ -23,26 +75,23 @@ h1 {
     color: red;
 }
 
+
+
+
+
+
+
 .main-text p {
     display: flex;
     /* align-items: center; */
     /* justify-content: center; */
     flex-direction: column;
     font-size: 4.5em;
+    font-weight: 600;
 }
 
 .main-text p:nth-child(1) {
     margin-top: 2em;
-}
-
-.main-text p:nth-child(2) {
-    margin-left: o.3em;
-}
-
-.main-description {
-    font-size: 0.25em;
-    display: flex;
-    justify-content: space-around;
 }
 
 .main-text .btn {
@@ -50,6 +99,21 @@ h1 {
     padding: 0.2em 1em;
 
 }
+
+
+.main-description p {
+    font-weight: 300;
+    font-size: 1.2em;
+    /* display: flex;
+    justify-content: space-around;
+    background-color: aqua; */
+}
+
+
+
+
+
+
 
 .features {
     display: flex;
@@ -63,12 +127,25 @@ h1 {
 .features span {
     color: rgb(57, 156, 223);
     font-size: 1.8em;
+    font-weight: 500;
 }
 
 
+
+
+
+
+
 .model_info {
-    background: rgb(249, 249, 247);
-    background: linear-gradient(29deg, rgba(249, 249, 247, 1) 0%, rgba(234, 226, 225, 1) 63%, rgba(237, 221, 221, 1) 78%);
+    /* background: rgb(249, 249, 247); */
+    /* background: linear-gradient(29deg, rgba(249, 249, 247, 1) 0%, rgba(234, 226, 225, 1) 63%, rgba(237, 221, 221, 1) 78%); */
+    background: rgb(2, 0, 36);
+    background: linear-gradient(148deg, rgba(2, 0, 36, 1) 0%, rgba(244, 244, 246, 1) 0%, rgba(248, 248, 246, 1) 63%);
+}
+
+.model_info .col-6 {
+    max-height: 450px;
+    /* got some styling issues so wrote this separately */
 }
 
 .model_info h2 {
@@ -78,9 +155,52 @@ h1 {
 
 .model_info span {
     font-size: 3em;
-    color: red;
+    color: rgb(40, 171, 123);
+    /* color: red; */
 }
 
 .model_info img {
     height: 80%;
+}
+
+
+
+
+
+
+.collapsible_content p {
+    padding: 5px;
+    font-size: x-large;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(148deg, rgba(2, 0, 36, 1) 0%, rgba(244, 244, 246, 1) 0%, rgba(248, 248, 246, 1) 63%);
+    position: relative;
+}
+
+.collapsible_content span {
+    position: absolute;
+    top: 20%;
+    right: 2%;
+    font-size: large;
+    color: grey;
+}
+
+.collapsible_content p:hover {
+    cursor: pointer;
+}
+
+.collapsible_content .row {
+    margin-top: 5px;
+}
+
+
+
+
+
+footer img {
+    cursor: pointer;
+    height: 22px;
+    width: 22px;
+    position: relative;
+    bottom: 2em;
+    left: 99%;
 }

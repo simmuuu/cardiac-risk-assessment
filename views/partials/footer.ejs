@@ -1,9 +1,20 @@
 <footer>
-    <div class="container-fluid bg-dark text-white">
-        <div class="row">
-            <div class="col">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla laboriosam animi excepturi temporibus consectetur laudantium illum, quidem ratione sequi nobis rerum unde amet distinctio inventore asperiores aspernatur rem ipsa porro.</p>
+    <div class="container-fluid bg-dark text-white pb-4">
+        <!-- <a id="scrollButton" href=""><img src="/images/icons/up-arrow.png" alt=""></a> -->
+        <img id="scrollButton" src="/images/icons/up-arrow.png" alt="">
+        <div class="row  text-center">
+            <div class="col ">
+                <p class="mb-1">&copy; 2024. All rights reserved.</p>
+                <a href="">Terms and Conditions</a>
             </div>
         </div>
     </div>
 </footer>
+
+
+<script>
+      scrollButton.addEventListener('click', function() {
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Use 'auto' instead of 'smooth' for instant scrolling
+  });
+</script>
