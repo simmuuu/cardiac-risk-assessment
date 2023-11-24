@@ -1,4 +1,4 @@
-<%- include('partials/head') %>
+<%- include('partials/head', { cssPath: '/css/main-page-styles.css' }) %>
 <body>
     
     <%- include('partials/navbar') %>
@@ -7,12 +7,12 @@
     <div class="text-center" id="sidebar">
         <ul style="list-style: none; padding:0; margin: 0;">
             <li class="pt-3" style="border-bottom: 1px solid white;">
-                <a href=""><img src="/images/icons/bookanappointment_icon.png" alt="book appointment"></a>
-                <p><a href="">Book Appointment</a></p>
+                <a href="#"><img src="/images/icons/bookanappointment_icon.png" alt="book appointment"></a>
+                <p><a href="#">Book Appointment</a></p>
             </li>
             <li class="pt-3">
-                <a href=""><img src="/images/icons/envelopeopen_icon.png" alt=""></a>
-                <p><a href="">Free Medical <br> Opinion</a></p>
+                <a href="views\freeOpinion.ejs"><img src="/images/icons/envelopeopen_icon.png" alt=""></a>
+                <p><a href="views\freeOpinion.ejs">Free Medical <br> Opinion</a></p>
             </li>
         </ul>
     </div>

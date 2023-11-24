@@ -13,6 +13,9 @@ app.get('/',(req,res)=>{
 app.get('/aboutus',(req,res)=>{
     res.render('aboutUs')
 })
+app.get('/freeopinion',(req,res)=>{
+    res.render('freeOpinion')
+})
 
 
 app.listen(3000,()=>{

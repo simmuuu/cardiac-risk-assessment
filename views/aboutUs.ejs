@@ -1,1 +1,71 @@
 <!-- empty for now -->
+<%- include('partials/head', { cssPath: '/css/main-page-styles.css' }) %>
+<body>
+
+    <%- include('partials/navbar') %>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1>About Us</h1>
+                <p>Welcome to the Keshav Vaidyalaya Heart Health Prediction App!</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h2>Our Mission</h2>
+                    <p>
+                        At Keshav Vaidyalaya, we are committed to promoting heart health and well-being among our employees. Our app is designed to provide personalized insights and predictions to empower individuals in managing their cardiovascular health.
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h2>Who We Are</h2>
+                    <p>
+                        We are a dedicated team of healthcare professionals, data scientists, and developers passionate about leveraging technology to enhance heart health awareness. Our goal is to make heart health assessments accessible and actionable for everyone.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>The Team</h2>
+                    <p>Meet the individuals behind the Keshav Vaidyalaya Heart Health Prediction App:</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <!-- Include team member details here -->
+                <!-- Example: -->
+                <div class="col-4">
+                    <img src="/images/team/member1.jpg" alt="Team Member 1">
+                    <h3>John Doe</h3>
+                    <p>Role: Developer</p>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2>Contact Us</h2>
+                    <p>
+                        Have questions or feedback? We'd love to hear from you. Reach out to us at <a href="mailto:info@keshavvaidyalaya.com">info@keshavvaidyalaya.com</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>
