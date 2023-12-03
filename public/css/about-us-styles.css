@@ -1,0 +1,9 @@
+.background-img-main {
+    background-image: url('/images/background3.jpg');
+    height: 100vh;
+    background-size: cover;
+}
+
+.col-4 img{
+    height: 25vh;
+}
