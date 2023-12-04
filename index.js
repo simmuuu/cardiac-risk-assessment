@@ -14,6 +14,9 @@ app.get('/',(req,res)=>{
 app.get('/aboutus',(req,res)=>{
     res.render('aboutUs')
 })
+app.get('/login',(req,res)=>{
+    res.render('Login')
+})
 app.get('/freeopinion',(req,res)=>{
     res.render('freeOpinion')
 })
