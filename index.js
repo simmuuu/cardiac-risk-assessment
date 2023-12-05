@@ -16,6 +16,9 @@ app.get('/aboutus',(req,res)=>{
 app.get('/freeopinion',(req,res)=>{
     res.render('freeOpinion')
 })
+app.get('/nearbyhospitals',(req,res)=>{
+    res.render('nearbyHospitals')
+})
 
 
 app.listen(3000,()=>{

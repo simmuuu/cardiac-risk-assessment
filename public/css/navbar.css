@@ -1,0 +1,29 @@
+* {
+    font-family: "Urbanist", sans-serif;
+}
+
+body::-webkit-scrollbar {
+    /* to remove scroll-bar from the side */
+    overflow: -moz-scrollbars-none;
+    width: 0 !important;
+}
+
+
+
+nav {
+    font-weight: bold;
+}
+
+
+.navbar-brand img {
+    max-width: 4em;
+    height: 2.7em;
+    position: absolute;
+    top: 2px;
+    left: 10px;
+
+}
+
+.nav-link:hover {
+    color: red;
+}

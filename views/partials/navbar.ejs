@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/"><img src="/images/navbar-brand-image.png" alt="" style="max-height: 40px;"></a>
+      <a class="navbar-brand" href="/"><img src="/images/navbar-brand-image.png" alt="" style="max-height: 40px;margin-top: 5px;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -12,7 +12,7 @@
           <li class="nav-item me-2">
             <a class="nav-link" id="nav" href="#">FAQ</a>
           </li>
-          <li class="nav-item dropdown me-2">
+          <!-- <li class="nav-item dropdown me-2">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
               Dropdown
             </a>
@@ -22,7 +22,7 @@
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item me-2">
             <a class="nav-link" id="nav"  href="/aboutus">About us</a>
           </li>
@@ -33,3 +33,8 @@
       </div>
     </div>
 </nav>
+
+
+<% if (cssPath) { %>
+  <link rel="stylesheet" href="<%= cssPath %>">
+<% } %>
