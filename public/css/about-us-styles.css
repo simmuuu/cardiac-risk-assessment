@@ -1,9 +1,42 @@
 .background-img-main {
-    background-image: url('/images/background3.jpg');
-    height: 100vh;
+    background-image: url('/images/about_us_bg.png');
+    height: 96vh;
     background-size: cover;
+    background-attachment: fixed;
 }
+.background-img-main h1{
+    margin-top: 3em;
+    font-size: 4em;
 
+}
+.background-img-main p{
+    font-size: 2rem;
+    margin-left: 1em;
+}
 .col-4 img{
     height: 25vh;
 }
+
+article h2{
+    font-size: 3em;
+}
+
+
+.team{
+    background: rgb(2, 0, 36);
+    background: linear-gradient(148deg, rgba(2, 0, 36, 1) 0%, rgba(244, 244, 246, 1) 0%, rgba(248, 248, 246, 1) 63%);
+}
+.team h2{
+    font-size: 3em;
+}
+.team h3{
+    margin-top: 1em;
+}
+.team img{
+    height: 20px;
+}
+.team p{
+    margin-bottom: 0;
+}
+
+
