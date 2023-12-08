@@ -7,7 +7,8 @@ body::-webkit-scrollbar {
     overflow: -moz-scrollbars-none;
     width: 0 !important;
 }
-body{
+
+body {
     overflow-x: hidden;
 }
 
@@ -19,8 +20,8 @@ nav {
 
 
 .navbar-brand img {
-    max-width: 4em;
-    height: 2.7em;
+    max-width: 4rem;
+    height: 2.7rem;
     position: absolute;
     top: 2px;
     left: 10px;
