@@ -4,8 +4,11 @@
   --whiteColor:#f5f5f5;
   --blackColor:#222;
 }
-body::-webkit-scrollbar{
+::-webkit-scrollbar{
   display: none;
+}
+html{
+  scrollbar-width: none;
 }
 * {
   margin: 0;
