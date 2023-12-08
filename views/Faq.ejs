@@ -1,0 +1,61 @@
+<%- include('partials/head', { cssPath: '/css/faqcs.css' }) %>
+<%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
+<body>
+  <div class="contentbox">
+    <div class="header">
+      <h1 class="header-title">FAQ</h1>
+      <p class="header-desc">Frequently Asked Questions</p>
+      <div class="search">
+        <input type="text" placeholder="Search....">
+        <button>Search</button>
+      </div>
+    </div>
+    <div class="faq">
+      <div class="faq-name">
+        <h1 class="faq-header">Have <br> questions?</h1>
+        <img class="faq-img" src="images\faqimg.png" >
+      </div>
+      <div class="faq-box">
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-1">
+          <label class="faq-title" for="faq-trigger-1">How does the heart health prediction system work? </label>
+          <div class="faq-detail">
+            <p>Our system utilizes advanced algorithms and data analysis based on a range of health indicators to assess your risk of a heart attack. By processing your input data, we provide personalized predictions to empower you in making informed decisions about your heart health. </p>                  
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-2">
+          <label class="faq-title" for="faq-trigger-2">How accurate are the predictions?</label>
+          <div class="faq-detail">
+            <p>Our system is designed to provide informative insights, but it's important to note that no prediction system is infallible. We recommend consulting with a healthcare professional for a comprehensive assessment of your heart health.</p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-3">
+          <label class="faq-title" for="faq-trigger-3">What lifestyle changes can improve heart health predictions?</label>
+          <div class="faq-detail">
+            <p>Adopting a heart-healthy diet (low in saturated fats, sugars, and high in fruits, vegetables, and whole grains), regular exercise, maintaining a healthy weight, managing stress, avoiding smoking, limiting alcohol intake,
+               and getting sufficient sleep can significantly improve heart health predictions.<br>
+              For additional information visit our<a href="freeOpinion"> <strong> free medical opinion page</strong></a></p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-4">
+          <label class="faq-title" for="faq-trigger-4">How can I predict my heart health ?</label>
+          <div class="faq-detail">
+            <p>Click on predict button on home page or just click<a href="#"><strong> predict</strong></a> to get redirected.</p>
+          </div>
+        </div>
+        <div class="faq-wrapper">
+          <input type="checkbox" class="faq-trigger" id="faq-trigger-5">
+          <label class="faq-title" for="faq-trigger-5">Can I trust this website and it's predictions ?</label>
+          <div class="faq-detail">
+            <p>This website provides accurate prediction upto 92%.<br>For additional information visit our<a href="#"><strong> Terms and condition</strong></a> page.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('partials/footer') %>
+</body>
+</html>

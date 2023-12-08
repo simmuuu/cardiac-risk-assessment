@@ -11,6 +11,9 @@ app.set('views',path.join(__dirname,'/views'))
 app.get('/',(req,res)=>{
     res.render('home')
 })
+app.get('/faq',(req,res)=>{
+    res.render('Faq')
+})
 app.get('/aboutus',(req,res)=>{
     res.render('aboutUs')
 })
