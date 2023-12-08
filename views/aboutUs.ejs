@@ -1,27 +1,31 @@
-<%- include('partials/head', { cssPath: '/css/main-page-styles.css' }) %>
+<!-- empty for now -->
+<%- include('partials/head', { cssPath: '/css/about-us-styles.css' }) %>
+<%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
+
 <body>
 
-    <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1>About Us</h1>
-                <p>Welcome to the Keshav Vaidyalaya Heart Health Prediction App!</p>
+    <div class="row background-img-main">
+        <div class="container mt-5 ">
+            <div class="row ">
+                <div class="col-6 text-center ">
+                    <h1>About Us</h1>
+                    <p>Welcome to the Keshav Vaidyalaya Heart Health Prediction App!</p>
+                </div>
             </div>
         </div>
-    </div>
+    </div> 
+    
 
-    <section class="mt-5">
+    <article class="my-5 py-3 ">
         <div class="container">
-            <div class="row">
-                <div class="col-6">
+            <div class="row d-flex justify-content-around">
+                <div class="col-5">
                     <h2>Our Mission</h2>
                     <p>
                         At Keshav Vaidyalaya, we are committed to promoting heart health and well-being among our employees. Our app is designed to provide personalized insights and predictions to empower individuals in managing their cardiovascular health.
                     </p>
                 </div>
-                <div class="col-6">
+                <div class="col-5">
                     <h2>Who We Are</h2>
                     <p>
                         We are a dedicated team of healthcare professionals, data scientists, and developers passionate about leveraging technology to enhance heart health awareness. Our goal is to make heart health assessments accessible and actionable for everyone.
@@ -29,24 +33,74 @@
                 </div>
             </div>
         </div>
-    </section>
+    </article>
 
-    <section class="mt-5">
-        <div class="container">
+
+
+
+    <section class="mt-5 team">
+        <div class="container py-5">
             <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12 text-center ">
                     <h2>The Team</h2>
                     <p>Meet the individuals behind the Keshav Vaidyalaya Heart Health Prediction App:</p>
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3 text-center">
                 <!-- Include team member details here -->
                 <!-- Example: -->
                 <div class="col-4">
-                    <img src="/images/team/member1.jpg" alt="Team Member 1">
-                    <h3>John Doe</h3>
+                    <!-- <img src="images\team\member1.png" alt="Team Member 1"> -->
+                    <h3>Pradeep Reddy</h3>
                     <p>Role: Developer</p>
+                    <a href=""><img src="/images/icons/linkedin.png" alt=""></a>
+                    <a href=""><img src="/images/icons/github-mark.png" alt=""></a>
+                </div>
+                <div class="col-4">
+                    <!-- <img src="images\team\member1.png" alt="Team Member 2"> -->
+                    <h3>Charitasri</h3>
+                    <p>Role: Developer</p>
+                    <a href=""><img src="/images/icons/linkedin.png" alt=""></a>
+                    <a href=""><img src="/images/icons/github-mark.png" alt=""></a>
+
+
                 </div> 
+                <div class="col-4">
+                    <!-- <img src="images\team\member1.png" alt="Team Member 3"> -->
+                    <h3>Sushruth</h3>
+                    <p>Role: Developer</p>
+                    <a href=""><img src="/images/icons/linkedin.png" alt=""></a>
+                    <a href=""><img src="/images/icons/github-mark.png" alt=""></a>
+
+
+                </div> 
+                <div class="col-4">
+                    <!-- <img src="images\team\member1.png" alt="Team Member 4"> -->
+                    <h3>Sathvik Reddy</h3>
+                    <p>Role: Developer</p>
+                    <a href=""><img src="/images/icons/linkedin.png" alt=""></a>
+                    <a href=""><img src="/images/icons/github-mark.png" alt=""></a>
+
+
+                </div> 
+                <div class="col-4">
+                    <!-- <img src="images\team\member1.png" alt="Team Member 5"> -->
+                    <h3>Sanjay Aditya</h3>
+                    <p>Role: Team Mascot</p>
+                    <a href=""><img src="/images/icons/linkedin.png" alt=""></a>
+                    <a href=""><img src="/images/icons/github-mark.png" alt=""></a>
+
+
+                </div> 
+                <div class="col-4">
+                    <!-- <img src="images\team\member1.png" alt="Team Member 6"> -->
+                    <h3>Tejas</h3>
+                    <p>Role: Developer</p>
+                    <a href=""><img src="/images/icons/linkedin.png" alt=""></a>
+                    <a href=""><img src="/images/icons/github-mark.png" alt=""></a>
+
+
+                </div>  
             </div>
         </div>
     </section>
