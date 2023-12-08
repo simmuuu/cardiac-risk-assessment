@@ -3,9 +3,10 @@
 }
 
 body::-webkit-scrollbar {
-    /* to remove scroll-bar from the side */
+    /* to remove scroll-bar from the side
     overflow: -moz-scrollbars-none;
-    width: 0 !important;
+    width: 0 !important; */
+    display: none;
 }
 
 body {
