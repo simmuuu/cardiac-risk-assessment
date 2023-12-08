@@ -9,8 +9,8 @@
 
 section {
   position: relative;
-  min-height: 100vh;
-  background-color:white;
+  min-height: 90vh;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;

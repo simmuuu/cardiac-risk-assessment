@@ -1,3 +1,21 @@
-p {
-    font-size: 3em;
+#map {
+    margin-left: 1em;
+}
+
+.hospital_image img {
+    width: 60%;
+    height: 100%;
+    padding: 0;
+}
+
+.list_of_hospitals {
+    margin-left: 1em;
+}
+
+.list_of_hospitals p {
+    font-size: x-large;
+}
+
+.list_of_hospitals li {
+    font-size: large;
 }

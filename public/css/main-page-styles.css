@@ -23,14 +23,14 @@
     padding-left: 0;
     top: 50vh;
     /* left: 94.2%; */
-    left: 99.2%;
+    left: 99.2vw;
 
     transition: left 0.3s ease;
 
 }
 
 #sidebar:hover {
-    left: 94.2%;
+    left: 94.2vw;
 }
 
 
