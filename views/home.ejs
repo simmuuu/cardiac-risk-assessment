@@ -1,154 +1,231 @@
 <%- include('partials/head', { cssPath: '/css/main-page-styles.css' }) %>
-<body>
-    
-    <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
+
+    <body>
+
+        <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
+
+            <main>
+                <div class="text-center" id="sidebar">
+                    <ul style="list-style: none; padding:0; margin: 0;">
+                        <a href="/nearbyhospitals">
+                            <li class="pt-3" style="border-bottom: 1px solid white;">
+                                <img src="/images/icons/bookanappointment_icon.png" alt="book appointment">
+                                <p>Nearby Hospitals</p>
+                            </li>
+                        </a>
+                        <a href="/freeopinion">
+                            <li class="pt-3">
+                                <img src="/images/icons/envelopeopen_icon.png" alt="">
+                                <p>Free Medical <br> Opinion</p>
+                            </li>
+                        </a>
+                    </ul>
+                </div>
 
 
-    <div class="text-center" id="sidebar">
-        <ul style="list-style: none; padding:0; margin: 0;">
-            <a href="/nearbyhospitals">
-                <li class="pt-3" style="border-bottom: 1px solid white;">
-                    <img src="/images/icons/bookanappointment_icon.png" alt="book appointment">
-                    <p>Nearby Hospitals</p>
-                </li></a>
-            <a href="/freeopinion">
-                <li class="pt-3">
-                    <img src="/images/icons/envelopeopen_icon.png" alt="">
-                    <p>Free Medical <br> Opinion</p>
-                </li></a>
-        </ul>
-    </div>
 
 
 
+                <div class="hero">
+                    <div class="main-text">
+                        <a href="#" class="latest">🎄☃️❄️ Happy December →</a>
+
+                        <h1>Heart <span>Health</span> <br>Prediction</h1>
+                        <div class="main-description">
+                            <p>
+                                Welcome, we prioritize your heart health. Empower yourself with personalized
+                                insights and predictions to proactively manage your cardiovascular well-being.
+                            </p>
+                        </div>
+                        <div class="buttons">
+                            <button class="primary">Predict Results</button>
+                            <button class="secondary">See Analysis</button>
+                        </div>
+                    </div>
+                </div>
 
 
-    <div class="container-fluid">
-        <div class="row background-img-main">
-            <div class="col-6 ms-5 main-text">
-                <p class="">Heart Health</p>
-                <p>Prediction</p>
-                <div class=" row main-description">
-                    <div class="col-9">
-                        <p>
-                            Welcome, we prioritize your heart health. Empower yourself with personalized insights and predictions to proactively manage your cardiovascular well-being.
+
+                <section class="features"> <!--  features section -->
+                    <h2>Why Us?</h2>
+                    <div class="card-section">
+                        <div class="feature-card">
+                            <img src="/images/icons/mobile-phone-flatline.svg" alt="phone">
+                            <h4>Mobile Optimised</h4>
+                            <p>Optimised for viewing on different devices and screen sizes.</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="/images/icons/wallet-two-color.svg" alt="wallet">
+                            <h4>Decrease Costs</h4>
+                            <p>Predict the chance of having a heart attack for free of charge.</p>
+                        </div>
+                        <div class="feature-card">
+                            <img src="/images/icons/idea-4.svg" alt="bulb">
+                            <h4>Smart Idea</h4>
+                            <p>Great Accuracy. Accurate prediction rates.</p>
+                        </div>
+                    </div>
+                </section>
+
+
+
+                <section class="bento">
+                    <ul class="bento-wrapper">
+                        <li class="one">
+                            <h2>92% Accurate</h2>
+                            <p>than any other ML Models.</p>
+                        </li>
+                        <li class="two">
+                            <h2>100% Free!</h2>
+                            <p>Forever.</p>
+                        </li>
+                        <li class="three">
+                            <h2>lorem ipsum</h2>
+                            <p>Lorem ipsum dolor sit amet.</p>
+                        </li>
+                        <li class="four">
+                            <h2>lorem ipsum</h2>
+                            <p>Lorem, ipsum dolor.</p>
+                        </li>
+                    </ul>
+                </section>
+
+
+                <section class="info">
+                    <div class="left">
+                        <h3>How to assess your Cardiac Health?</h3>
+                        <h5>Get your personalized Cardiac Risk Assessment.</h5>
+                    </div>
+                    <div class="right">
+                        <p class="step one">
+                            Log in or register to access the cardiac risk assessment, ensuring secure data association.
+                        </p>
+                        <p class="step two">
+                            After login, complete a form with age, lifestyle, etc., providing data for the assessment.
+                        </p>
+                        <p class="step three">
+                            System analyzes data, displays risk level, and saves results to your profile.
+                        </p>
+                        <p class="step four">
+                            Based on risk level, get personalized nutrition/exercise tips or info on nearby hospitals.
                         </p>
                     </div>
-                </div>
-                <button class="btn btn-danger mt-3">Predict</button>
-                <button class="btn btn-outline-primary mt-3 ms-3">See Analysis</button>
-            </div>
-        </div>
-    </div>
+                </section>
 
 
-
-    <section class="mt-4 mb-5">   <!--  features section -->
-        <div class="container text-center">
-            <div class="row pt-5 pb-3 features">
-                <div class="col-3">
-                    <img src="/images/icons/icons8-iphone-14-pro-100.png" alt="phone" class="mb-4">
-                    <p><span>Mobile Optimise</span><p>
-                    <p>Optimised for viewing on different platforms and devices.</p>
-                </div>
-                <div class="col-3">
-                    <img src="/images/icons/icons8-wallet-100.png" alt="wallet" class="mb-4">
-                    <p><span>Decrease Costs</span></p>
-                    <p>Predict the chance of having a heart attack free of charge.</p>
-                </div>
-                <div class="col-3">
-                    <img style="height: 100px;" src="/images/icons/icons8-bulb-64.png" alt="bulb" class="mb-4">
-                    <p><span>Smart Idea</span></p>
-                    <p>Great Accuracy. Accurate prediction rates.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section class="model_info">
-      <div class="container">
-        <div class="row">
-          <div class="col-6">
-            <h2>Our model is <span ><sub>92%</sub></span></h2>
-            <h2>Accurate compared to other publicly</h2>
-            <h2>available websites.</h2>
-          </div>
-          <div class="col-6 text-center">
-            <img class="my-4 " src="images/model_picture_stock_image.png" alt="brain">
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-
-    <section class="collapsible_content mt-5 mb-4 ms-4">
-        <div class="container">
-            <div class="row">
-                <p data-bs-toggle="collapse" data-bs-target="#one">
-                    How does the heart health prediction system work? <span>&oplus;</span>
-                </p>
-                <div class="collapse mb-3" id="one">
-                    <div class="card card-body">
-                        Our system utilizes advanced algorithms and data analysis based on a range of health indicators to assess your risk of a heart attack. By processing your input data, we provide personalized predictions to empower you in making informed decisions about your heart health.                   
+                <section class="faq">
+                    <div class="left">
+                        <h2>FAQ</h2>
+                        <h5>Answers to some questions you might have.</h5>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <p data-bs-toggle="collapse" data-bs-target="#two">
-                    How accurate are the predictions? <span>&oplus;</span>                
-                </p>
-                <div class="collapse" id="two">
-                    <div class="card card-body">
-                        Our system is designed to provide informative insights, but it's important to note that no prediction system is infallible. We recommend consulting with a healthcare professional for a comprehensive assessment of your heart health.
+                    <div class="faqlist">
+                        <div class="faqbox">
+                            <div class="faq-q">
+                                <h5>How does the heart health prediction system work?</h5>
+
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon"
+                                    data-astro-cid-j7pv25f6="">
+                                    <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                    <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                </svg>
+                            </div>
+                            <div class="faqa">
+                                <p>Our system utilizes advanced algorithms and data analysis based on a range of health
+                                    indicators to assess your risk of a heart attack. By processing your input data, we
+                                    provide personalized predictions to empower you in making informed decisions about
+                                    your heart health.</p>
+                            </div>
+                        </div>
+                        <div class="faqbox">
+                            <div class="faq-q">
+                                <h5>How accurate are the predictions?</h5>
+
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon"
+                                    data-astro-cid-j7pv25f6="">
+                                    <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                    <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                </svg>
+                            </div>
+                            <div class="faqa">
+                                <p>Our system is designed to provide informative insights, but it's important to note
+                                    that no prediction system is infallible. We recommend consulting with a healthcare
+                                    professional for a comprehensive assessment of your heart health.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="faqbox">
+                            <div class="faq-q">
+                                <h5>Can I use this service in emergencies?</h5>
+
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon"
+                                    data-astro-cid-j7pv25f6="">
+                                    <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                    <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                </svg>
+                            </div>
+                            <div class="faqa">
+                                <p>No, our service is not intended for emergency situations.
+                                    <br>If you believe you are experiencing a medical emergency, please call your local
+                                    emergency number immediately.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="faqbox">
+                            <div class="faq-q">
+                                <h5>What should I do if I receive a high-risk prediction?</h5>
+
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon"
+                                    data-astro-cid-j7pv25f6="">
+                                    <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                    <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                </svg>
+                            </div>
+                            <div class="faqa">
+                                <p>A high-risk prediction does not replace professional medical advice. Consult with
+                                    your healthcare provider promptly to discuss your results, receive a thorough
+                                    evaluation, and determine the most appropriate course of action.</p>
+                            </div>
+                        </div>
+                        <div class="faqbox">
+                            <div class="faq-q">
+                                <h5>Is the service suitable for everyone?</h5>
+
+                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" class="faq-icon"
+                                    data-astro-cid-j7pv25f6="">
+                                    <path d="M11.5 0L11.5 23" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                    <path d="M23 11.5L-2.38419e-07 11.5" stroke="var(--accent)" stroke-width="6"
+                                        data-astro-cid-j7pv25f6=""></path>
+                                </svg>
+                            </div>
+                            <div class="faqa">
+                                <p>Our service is designed for informational purposes and may not be suitable for
+                                    everyone. It is not a substitute for professional medical advice. Consult with your
+                                    healthcare provider to determine the best approach for your individual health needs.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <p data-bs-toggle="collapse" data-bs-target="#three">
-                    Can I use this service in emergencies? <span>&oplus;</span>               
-                </p>
-                <div class="collapse" id="three">
-                    <div class="card card-body">
-                        No, our service is not intended for emergency situations. If you believe you are experiencing a medical emergency, please call your local emergency number immediately.
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <p data-bs-toggle="collapse" data-bs-target="#four">
-                    What should I do if I receive a high-risk prediction? <span>&oplus;</span>               
-                </p>
-                <div class="collapse" id="four">
-                    <div class="card card-body">
-                        A high-risk prediction does not replace professional medical advice. Consult with your healthcare provider promptly to discuss your results, receive a thorough evaluation, and determine the most appropriate course of action.
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <p data-bs-toggle="collapse" data-bs-target="#five">
-                    Is the service suitable for everyone? <span>&oplus;</span>
-                </p>
-                <div class="collapse" id="five">
-                    <div class="card card-body">
-                        Our service is designed for informational purposes and may not be suitable for everyone. It is not a substitute for professional medical advice. Consult with your healthcare provider to determine the best approach for your individual health needs.
-                    </div>
-                </div>
-            </div>
-        </div> 
-    </section>
+                </section>
+            </main>
 
 
 
+            <br>
+            <%- include('partials/footer') %>
+
+                <script src="/js/sidebar.js"></script>
+                <script src="/public/scripts/homepage-faq.js"></script>
 
 
-    
-    <%- include('partials/footer') %>
+    </body>
 
-    <script src="/js/sidebar.js"></script>
-
-
-</body>
-</html>
+    </html>

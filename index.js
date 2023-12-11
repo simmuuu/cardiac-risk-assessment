@@ -2,33 +2,33 @@ const { log } = require('console');
 const express = require('express');
 const app = express();
 const path = require('path');
-app.set('view engine','ejs');
+app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname,'public')))
-app.set('views',path.join(__dirname,'/views'))
+app.use(express.static(path.join(__dirname, 'public')))
+app.set('views', path.join(__dirname, '/views'))
+app.use('/public', express.static('public', { 'extensions': ['html', 'js'] }));
 
-
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.render('home')
 })
-app.get('/faq',(req,res)=>{
+app.get('/faq', (req, res) => {
     res.render('Faq')
 })
-app.get('/aboutus',(req,res)=>{
+app.get('/aboutus', (req, res) => {
     res.render('aboutUs')
 })
-app.get('/login',(req,res)=>{
+app.get('/login', (req, res) => {
     res.render('Login')
 })
-app.get('/freeopinion',(req,res)=>{
+app.get('/freeopinion', (req, res) => {
     res.render('freeOpinion')
 })
-app.get('/nearbyhospitals',(req,res)=>{
+app.get('/nearbyhospitals', (req, res) => {
     res.render('nearbyHospitals')
 })
 
 
-app.listen(3000,()=>{
+app.listen(3000, () => {
     console.log('Listening on port 3000')
     console.log('Go to http://localhost:3000/');
 })
