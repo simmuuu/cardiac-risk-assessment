@@ -1,5 +1,6 @@
 #map {
     margin-left: 1em;
+    box-shadow: 5px 5px 5px 5px grey;
 }
 
 .hospital_image img {
@@ -10,6 +11,9 @@
 
 .list_of_hospitals {
     margin-left: 1em;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(148deg, rgba(2, 0, 36, 1) 0%, rgba(244, 244, 246, 1) 0%, rgba(248, 248, 246, 1) 63%);
+    padding: 1em;
 }
 
 .list_of_hospitals p {
