@@ -10,6 +10,8 @@ const successCallback = (position) => {
 
 const errorCallback = (error) => {
     console.log(error);
+    alert("Please enable location permission")
+
 };
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
@@ -30,12 +32,9 @@ function printHospitals(hospital){
 
   let ul= document.getElementsByTagName('ul')[1] // as navbar is also a ul , we need to select second one
   if(liCount<10 && hospital.tags.name){
-    console.log(hospital.tags.name)
-
     let li=document.createElement('li')
     li.textContent=hospital.tags.name
     ul.appendChild(li)
-    console.log('List item appended to UL:', li);
     liCount++;
   }
 
