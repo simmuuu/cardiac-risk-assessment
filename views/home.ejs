@@ -38,8 +38,15 @@
                             </p>
                         </div>
                         <div class="buttons">
-                            <button class="primary">Predict Results</button>
-                            <button class="secondary">See Analysis</button>
+                            <input type="button" onclick="location.href='/predict';" value="Predict Results"
+                                class="primary" />
+                            <input type="button" onclick="location.href='#';" value="See Analysis" class="secondary" />
+                            <!-- <a href="/predict">
+                                <button class="primary">Predict Results</button>
+                            </a> -->
+                            <!-- <a href="#">
+                                <button class="secondary">See Analysis</button>
+                            </a> -->
                         </div>
                     </div>
                 </div>
@@ -223,7 +230,7 @@
             <%- include('partials/footer') %>
 
                 <script src="/js/sidebar.js"></script>
-                <script src="/public/scripts/homepage-faq.js"></script>
+                <script src="/scripts/homepage-faq.js"></script>
 
 
     </body>

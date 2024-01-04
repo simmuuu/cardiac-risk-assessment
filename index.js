@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, '/views'))
-app.use('/public', express.static('public', { 'extensions': ['html', 'js'] }));
+// app.use('/public', express.static('public', { 'extensions': ['html', 'js'] }));
 
 app.get('/', (req, res) => {
     res.render('home')
@@ -25,6 +25,9 @@ app.get('/freeopinion', (req, res) => {
 })
 app.get('/nearbyhospitals', (req, res) => {
     res.render('nearbyHospitals')
+})
+app.get('/predict', (req, res) => {
+    res.render('form')
 })
 
 
