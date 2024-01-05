@@ -13,7 +13,6 @@ const User = require('./models/user');
 
 
 
-// const uri='mongosh "mongodb+srv://heart-health-dev.hjmecfo.mongodb.net/" --apiVersion 1 --username tejasposham024'
 
 
 
