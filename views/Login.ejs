@@ -8,11 +8,11 @@
         <div class="user signinBx">
           <div class="imgBx"><img src="https://cdn.dribbble.com/users/8779526/screenshots/16963725/final-shot-5_4x.png" alt="" /></div>
           <div class="formBx">
-            <form action="" onsubmit="return false;">
+            <form action="/login" method="POST">
               <h2>Sign In</h2>
-              <input type="text" name="" placeholder="Username" />
-              <input type="password" name="" placeholder="Password" />
-              <input type="submit" name="" value="Login" />
+              <input type="text" name="username" placeholder="Username" required>
+              <input type="password" name="password" placeholder="Password" required>
+              <input type="submit" name="" value="Login">
               <p class="signup">
                 Don't have an account ?
                 <a href="#" onclick="toggleForm();">Sign Up.</a>
@@ -22,11 +22,11 @@
         </div>
         <div class="user signupBx">
           <div class="formBx">
-            <form action="" onsubmit="return false;">
+            <form action="/signup" method="POST">
               <h2>Create an account</h2>
-              <input type="text" name="" placeholder="Username" />
-              <input type="password" name="" placeholder="Create Password" />
-              <input type="submit" name="" value="Sign Up" />
+              <input type="text" name="username" placeholder="Username" required>
+              <input type="password" name="password" placeholder="Create Password" required>
+              <input type="submit" name="" value="Sign Up">
               <p class="signup">
                 Already have an account ?
                 <a href="#" onclick="toggleForm();">Sign in.</a>
