@@ -14,7 +14,7 @@ const User = require('./models/user');
 
 
 
-dbUrl="mongodb+srv://tejasposham024:ILojjTxS6fYhgiHI@heart-health-dev.hjmecfo.mongodb.net/heart-health-database"
+dbUrl="mongodb+srv://<username>:<password>@heart-health-dev.hjmecfo.mongodb.net/"
 
 // mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
 // const db = mongoose.connection;
