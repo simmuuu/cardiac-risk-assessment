@@ -14,15 +14,21 @@ const User = require('./models/user');
 
 
 
+dbUrl="mongodb+srv://tejasposham024:ILojjTxS6fYhgiHI@heart-health-dev.hjmecfo.mongodb.net/heart-health-database"
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
-const db = mongoose.connection;
-db.on("error",console.error.bind(console,"connection error:"));
-db.once("open", ()=>{
-    console.log("Database Connected");
+// mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
+// const db = mongoose.connection;
+// db.on("error",console.error.bind(console,"connection error:"));
+// db.once("open", ()=>{
+//     console.log("Database Connected");
+// })
+mongoose.connect(dbUrl)
+.then(()=>{
+    console.log("Mongo connection established");
 })
-
+.catch((err)=>{
+    console.log("Error connecting to mongo ", err);
+});
 
 
 
