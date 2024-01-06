@@ -5,12 +5,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+  /* background-color: #fffaf5; */
 }
 
 
 section {
   position: relative;
-  min-height: 90vh;
+  min-height: 92vh;
   background-color: #fffaf5;
   display: flex;
   justify-content: center;
