@@ -1,4 +1,5 @@
 const { log } = require('console');
+const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -13,8 +14,10 @@ const User = require('./models/user');
 
 
 
+dotenv.config();
 
-dbUrl="mongodb+srv://<username>:<password>@heart-health-dev.hjmecfo.mongodb.net/"
+
+dbUrl=process.env.dbUrl;
 
 // mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
 // const db = mongoose.connection;
@@ -89,11 +92,10 @@ const isLoggedin = (req, res , next)=>{
     }
     next();
 }
-
-
-
-
 //middleware---------------
+
+
+
 
 
 
@@ -140,7 +142,7 @@ app.get('/logout', (req, res) =>{
 
 
     res.redirect('/');
-    req.flash('error','Logged out');
+    req.flash('success','Logged out');
 
 })
 
