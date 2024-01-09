@@ -1,4 +1,3 @@
-console.log("hello");
 
 document.addEventListener("DOMContentLoaded", function () {
     const faqBoxes = document.querySelectorAll('.faqbox');

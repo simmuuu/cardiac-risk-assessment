@@ -8,10 +8,14 @@
   /* background-color: #fffaf5; */
 }
 
+body {
+  background-color: #fffaf5;
+
+}
 
 section {
   position: relative;
-  min-height: 92vh;
+  min-height: 85vh;
   background-color: #fffaf5;
   display: flex;
   justify-content: center;
