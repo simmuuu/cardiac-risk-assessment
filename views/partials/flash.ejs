@@ -1,17 +1,17 @@
 <% if(success && success.length){ %>
-    <div class="alert alert-success text-center my=0" role="alert">
-        <%= success %>
-    </div>
-<% } %>
+  <div class="alert alert-success text-center my=0" role="alert">
+    <%= success %>
+  </div>
+  <% } %>
 
 
 
-<% if(error && error.length){ %>
-    <!-- <%  console.log(error) %> -->
-    <div class="alert alert-danger text-center my=0" role="alert">
+    <% if(error && error.length){ %>
+      <!-- <%  console.log(error) %> -->
+      <div class="alert alert-danger text-center my=0" role="alert">
         <%= error %>
-    </div>
-<% } %>
+      </div>
+      <% } %>
 
 
 
@@ -25,50 +25,51 @@
 
 
 
-<style>
-    .alert{
-        width: 25%;
-        margin-left: 37.5%;
-        margin-top: 0.5%;
-        line-height: 0.3;
-    }
+        <style>
+          .alert {
+            width: 25%;
+            margin-left: 37.5%;
+            margin-top: 0.5%;
+            line-height: 0.3;
+          }
 
 
 
-        /* Define fade-out animation */
-    .fade-out {
-    opacity: 1;
-    transition: opacity 0.5s ease-out; /* Adjust the duration and timing function as needed */
-    }
+          /* Define fade-out animation */
+          .fade-out {
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+            /* Adjust the duration and timing function as needed */
+          }
 
-    .fade-out.hidden {
-    opacity: 0;
-    }
-</style>
+          .fade-out.hidden {
+            opacity: 0;
+          }
+        </style>
 
 
 
 
-<script>
-  // Wait for the DOM to be fully loaded
-  document.addEventListener('DOMContentLoaded', (event) => {
-    // Get the flash message element
-    const flashMessage = document.querySelector('.alert');
+        <script>
+          // Wait for the DOM to be fully loaded
+          document.addEventListener('DOMContentLoaded', (event) => {
+            // Get the flash message element
+            const flashMessage = document.querySelector('.alert');
 
-    // Check if the flash message element exists
-    if (flashMessage) {
-      // Add fade-out animation
-      flashMessage.classList.add('fade-out');
+            // Check if the flash message element exists
+            if (flashMessage) {
+              // Add fade-out animation
+              flashMessage.classList.add('fade-out');
 
-      // Set a timeout to remove the flash message after the animation completes
-      setTimeout(() => {
-        flashMessage.classList.add('hidden');  // Hide the flash message
-      }, 500);  // Wait for the animation duration (0.5 seconds)
+              // Set a timeout to remove the flash message after the animation completes
+              setTimeout(() => {
+                flashMessage.classList.add('hidden');  // Hide the flash message
+              }, 500);  // Wait for the animation duration (0.5 seconds)
 
-      // Remove the flash message from the DOM after the animation completes
-      setTimeout(() => {
-        flashMessage.remove();
-      }, 1000);  // Wait for the animation duration plus an additional delay (1 second)
-    }
-  });
-  </script>
+              // Remove the flash message from the DOM after the animation completes
+              setTimeout(() => {
+                flashMessage.remove();
+              }, 1000);  // Wait for the animation duration plus an additional delay (1 second)
+            }
+          });
+        </script>

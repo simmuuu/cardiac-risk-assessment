@@ -19,6 +19,7 @@ dotenv.config();
 
 dbUrl=process.env.dbUrl;
 
+
 // mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
 // const db = mongoose.connection;
 // db.on("error",console.error.bind(console,"connection error:"));
@@ -26,12 +27,12 @@ dbUrl=process.env.dbUrl;
 //     console.log("Database Connected");
 // })
 mongoose.connect(dbUrl)
-.then(()=>{
-    console.log("Mongo connection established");
-})
-.catch((err)=>{
-    console.log("Error connecting to mongo ", err);
-});
+    .then(() => {
+        console.log("Mongo connection established");
+    })
+    .catch((err) => {
+        console.log("Error connecting to mongo ", err);
+    });
 
 
 
@@ -45,20 +46,20 @@ app.set('views', path.join(__dirname, '/views'));
 
 
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
 
-const sessionConfig={
+const sessionConfig = {
     secret: 'THISisAsecret',
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 60 * 60), //1hour
-        maxAge: 1000*60*60 //1hour
-        
+        maxAge: 1000 * 60 * 60 //1hour
+
     }
 }
 app.use(session(sessionConfig));
@@ -76,8 +77,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
     res.locals.user = req.user;// Assuming req.user is set by Passport.js
-    res.locals.success = req.flash('success'); 
-    res.locals.error = req.flash('error'); 
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 });
 
@@ -85,9 +86,9 @@ app.use((req, res, next) => {
 
 
 //middleware------------
-const isLoggedin = (req, res , next)=>{
-    if(!req.isAuthenticated()){
-        req.flash('error','Login in required')
+const isLoggedin = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        req.flash('error', 'Login in required')
         return res.redirect('/login');
     }
     next();
@@ -127,15 +128,15 @@ app.get('/predict', isLoggedin, (req, res) => {
 //authentication routes
 
 
-app.get('/logout', (req, res) =>{
+app.get('/logout', (req, res) => {
 
 
 
     // console.log('Session ID before logout:', req.sessionID); // Log session ID before logout
     // console.log('Session data before logout:', req.session); // Log session data before logout
 
-    req.logout(() => {});  // Provide an empty callback function
-    
+    req.logout(() => { });  // Provide an empty callback function
+
     // console.log('Session ID after logout:', req.sessionID); // Log session ID after logout
     // console.log('Session data after logout:', req.session); // Log session data after logout
 
@@ -143,6 +144,7 @@ app.get('/logout', (req, res) =>{
 
     res.redirect('/');
     req.flash('success','Logged out');
+
 
 })
 
@@ -153,10 +155,10 @@ app.get('/login', (req, res) => {
     res.render('Login');
 });
 
-app.post('/signup', async(req, res) => {
-    try{
-        const {username, password} = req.body;
-        const user = new User({username});
+app.post('/signup', async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = new User({ username });
         const registeredUser = await User.register(user, password);
         // console.log(registeredUser);
         // res.redirect('/');
@@ -170,18 +172,18 @@ app.post('/signup', async(req, res) => {
                 return next(err); // Pass any error to the error handler
             }
             console.log('User logged in successfully after signup:', registeredUser);
-            req.flash('success','Account created successfully')
+            req.flash('success', 'Account created successfully')
             res.redirect('/');
         });
-    } catch(e){
-            //we need to have a flash message here , example user already exists
-        req.flash('error','Something went wrong');
+    } catch (e) {
+        //we need to have a flash message here , example user already exists
+        req.flash('error', 'Something went wrong');
         res.redirect('/login');
     }
 
 });
 
-app.post('/login', passport.authenticate('local', {failureFlash:true, failureRedirect:'/login'}) , (req, res) =>{
+app.post('/login', passport.authenticate('local', { failureFlash: true, failureRedirect: '/login' }), (req, res) => {
     req.flash('success', 'Welcome back');
     res.redirect('/');
 });
