@@ -9,8 +9,11 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const bodyParser = require('body-parser')
 const flash = require('connect-flash');
+const { spawn } = require('child_process');
+
 
 const User = require('./models/user');
+const Predict = require('./models/predict_info');
 
 
 
@@ -18,7 +21,7 @@ dotenv.config();
 
 
 dbUrl=process.env.dbUrl;
-
+secretSessionKey=process.env.secretSessionKey;
 
 // mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
 // const db = mongoose.connection;
@@ -37,6 +40,7 @@ mongoose.connect(dbUrl)
 
 
 
+
 app.set('view engine', 'ejs');
 
 
@@ -47,12 +51,13 @@ app.set('views', path.join(__dirname, '/views'));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 
 
 
 const sessionConfig = {
-    secret: 'THISisAsecret',
+    secret: secretSessionKey,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -124,6 +129,57 @@ app.get('/predict', isLoggedin, (req, res) => {
 
 
 
+app.post('/predict', isLoggedin, async(req,res)=>{
+
+    const currentDate = new Date();
+    // Convert to Indian Standard Time (IST)
+    const options = { timeZone: 'Asia/Kolkata', hour12: false };
+    const istDate = currentDate.toLocaleString('en-US', options);
+    // console.log(istDate); // Output: 1/9/2024, 6:04:56 PM
+    req.body.time=istDate;
+
+    let predict= new Predict(req.body);
+    await predict.save();
+
+    const pythonProcess = spawn('python', ["F:/Programming/WEB Dev Practice/cardiac-risk-assessment/python/prediction_script.py",predict['_id']]);
+
+    pythonProcess.stdout.on('data', (buffer) => {
+        // const output = buffer.toString().trim();
+        // console.log(output)
+    });
+    pythonProcess.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+    pythonProcess.on('close', async(code) => {
+        console.log(`Python script exited with code ${code}`);
+
+        if (req.isAuthenticated()) {
+            try {
+                const user = await User.findById(req.user._id);
+                if (user) {
+                    // Push the ID of the saved Predict document to the predicts array
+                    user.predicts.push(predict._id);
+                    req.user.predicts.push(predict._id)
+                    // Save the updated user document
+                    await user.save();
+                    console.log("User updated:", user);
+                } else {
+                    console.log("User not found");
+                }
+            } catch (error) {
+                console.error("Error updating user:", error);
+            }
+        }
+
+        predict= await Predict.findById(predict._id)
+        console.log("PREDICT PROBABILITY IS",parseFloat(predict.predict_probability))
+        res.render('outputPage',{predict_probability: parseFloat(predict.predict_probability)})
+
+    });
+
+});
+
+
 
 //authentication routes
 
@@ -187,15 +243,6 @@ app.post('/login', passport.authenticate('local', { failureFlash: true, failureR
     req.flash('success', 'Welcome back');
     res.redirect('/');
 });
-
-
-
-
-
-
-
-
-
 
 
 

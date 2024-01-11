@@ -4,20 +4,20 @@
         <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 
             <div class="container">
-                <form class="row g-3">
+                <form action="/predict" method="POST" class="row g-3">
 
                     <!-- Row 1 -->
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" name="name" class="form-control" id="name" required>
                         </div>
                         <div class="col-lg-4 ms-0 ms-lg-2 mt-2 mt-lg-0">
                             <label for="gender" class="form-label">Gender</label>
-                            <select class="form-select" aria-label="Gender" id="gender">
+                            <select class="form-select" name="Sex" aria-label="Gender" id="gender" required>
                                 <option selected>Select Gender</option>
                                 <option value="1">Male</option>
-                                <option value="2">Female</option>
+                                <option  value="0">Female</option>
                             </select>
                         </div>
                     </div>
@@ -26,17 +26,17 @@
                     <div class="row mt-2">
                         <div class="col-3 col-lg-2">
                             <label for="Height" class="form-label">Height (cm)</label>
-                            <input type="number" class="form-control" id="Height" min="50" max="251">
+                            <input type="number" name="height" class="form-control" id="Height" min="50" max="251" required>
                         </div>
 
                         <div class="col-3 col-lg-2">
                             <label for="Weight" class="form-label">Weight (kg)</label>
-                            <input type="number" class="form-control" id="Weight" min="1">
+                            <input type="number" name="weight" class="form-control" id="Weight" min="1" required>
                         </div>
                         <div class="col-3 col-lg-3">
                             <!-- Added a temporary &nbsp; for liningup Text Box -->
                             <label for="age" class="form-label">Age&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>
-                            <input type="number" class="form-control" id="age" min="18" max="120">
+                            <input type="number" name="Age" class="form-control" id="age" min="18" max="120" required>
 
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="GenHlth" class="form-label">How would you rate your General Health?</label>
-                            <input type="range" class="form-range" min="1" max="5" id="GenHlth">
+                            <input type="range" name="GenHlth" class="form-range" min="1" max="5" id="GenHlth">
                             <h4 id="GenHlthOut"></h4>
                         </div>
                     </div>
@@ -127,11 +127,11 @@
                         <div class="row mt-2">
                             <div class="col-4 col-lg-3">
                                 <label for="PhysHlth" class="form-label">Physical Health</label>
-                                <input type="number" class="form-control" id="PhysHlth" min="1" max="30">
+                                <input type="number" name="PhysHlth" class="form-control" id="PhysHlth" min="1" max="30" required>
                             </div>
                             <div class="col-4 col-lg-3">
                                 <label for="MentHlth" class="form-label">Mental Health</label>
-                                <input type="number" class="form-control" id="MentHlth" min="1" max="30">
+                                <input type="number" name="MentHlth" class="form-control" id="MentHlth" min="1" max="30" required>
                             </div>
                         </div>
                     </div>
@@ -155,45 +155,9 @@
                         </div>
                     </div>
 
+                    
+
                     <!-- Row 9 -->
-                    <div class="row mt-5">
-                        <div class="form-group">
-                            <label for="AnyHealthcare">Do you have any healthcare coverage?</label>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="AnyHealthcare" id="AnyHealthcareYES"
-                                    value="1">
-                                <label class="form-check-label" for="AnyHealthcareYES">Yes</label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="AnyHealthcare" id="AnyHealthcareNO"
-                                    value="0">
-                                <label class="form-check-label" for="AnyHealthcareNO">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 10 -->
-                    <div class="row mt-5">
-                        <div class="form-group">
-                            <label for="NoDocbcCost">Are there any out-of-pocket costs for seeing a doctor?</label>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NoDocbcCost" id="NoDocbcCostYES"
-                                    value="1">
-                                <label class="form-check-label" for="NoDocbcCostYES">Yes</label>
-                            </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="NoDocbcCost" id="NoDocbcCostNO"
-                                    value="0">
-                                <label class="form-check-label" for="NoDocbcCostNO">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Row 11 -->
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="DiffWalk">Do you have difficulty walking?</label>
@@ -213,7 +177,7 @@
                     <!-- Last Row -->
                     <div class="col-12 mt-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" required>
                             <label class="form-check-label" for="gridCheck">
                                 By continuing, you agree to the
                                 <a href="#" target="_self" rel="noopener noreferrer">Terms &
