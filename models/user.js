@@ -3,7 +3,12 @@ const Schema = mongoose.Schema
 const passportLocalMongoose = require('passport-local-mongoose');
 
 
-const UserSchema = new Schema({});
+const UserSchema = new Schema({
+    predicts:[{
+        type:Schema.Types.ObjectId,
+        ref:'Predict'
+    }]
+});
 
 UserSchema.plugin(passportLocalMongoose);
 
