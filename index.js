@@ -20,8 +20,8 @@ const Predict = require('./models/predict_info');
 dotenv.config();
 
 
-dbUrl=process.env.dbUrl;
-secretSessionKey=process.env.secretSessionKey;
+dbUrl = process.env.dbUrl;
+secretSessionKey = process.env.secretSessionKey;
 
 // mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
 // const db = mongoose.connection;
@@ -129,19 +129,19 @@ app.get('/predict', isLoggedin, (req, res) => {
 
 
 
-app.post('/predict', isLoggedin, async(req,res)=>{
+app.post('/predict', isLoggedin, async (req, res) => {
 
     const currentDate = new Date();
     // Convert to Indian Standard Time (IST)
     const options = { timeZone: 'Asia/Kolkata', hour12: false };
     const istDate = currentDate.toLocaleString('en-US', options);
     // console.log(istDate); // Output: 1/9/2024, 6:04:56 PM
-    req.body.time=istDate;
+    req.body.time = istDate;
 
-    let predict= new Predict(req.body);
+    let predict = new Predict(req.body);
     await predict.save();
 
-    const pythonProcess = spawn('python', ["F:/Programming/WEB Dev Practice/cardiac-risk-assessment/python/prediction_script.py",predict['_id']]);
+    const pythonProcess = spawn('python', [process.env.prediction_script_path, predict['_id']]);
 
     pythonProcess.stdout.on('data', (buffer) => {
         // const output = buffer.toString().trim();
@@ -150,7 +150,7 @@ app.post('/predict', isLoggedin, async(req,res)=>{
     pythonProcess.stderr.on('data', (data) => {
         console.error(`stderr: ${data}`);
     });
-    pythonProcess.on('close', async(code) => {
+    pythonProcess.on('close', async (code) => {
         console.log(`Python script exited with code ${code}`);
 
         if (req.isAuthenticated()) {
@@ -171,9 +171,9 @@ app.post('/predict', isLoggedin, async(req,res)=>{
             }
         }
 
-        predict= await Predict.findById(predict._id)
-        console.log("PREDICT PROBABILITY IS",parseFloat(predict.predict_probability))
-        res.render('outputPage',{predict_probability: parseFloat(predict.predict_probability)})
+        predict = await Predict.findById(predict._id)
+        console.log("PREDICT PROBABILITY IS", parseFloat(predict.predict_probability))
+        res.render('result', { predict_probability: parseFloat(predict.predict_probability) })
 
     });
 
@@ -199,7 +199,7 @@ app.get('/logout', (req, res) => {
 
 
     res.redirect('/');
-    req.flash('success','Logged out');
+    req.flash('success', 'Logged out');
 
 
 })
