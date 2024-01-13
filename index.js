@@ -20,15 +20,10 @@ const Predict = require('./models/predict_info');
 dotenv.config();
 
 
-dbUrl = process.env.dbUrl;
-secretSessionKey = process.env.secretSessionKey;
+dbUrl=process.env.dbUrl;
+secretSessionKey=process.env.secretSessionKey;
+prediction_script_path=process.env.prediction_script_path;
 
-// mongoose.connect('mongodb://127.0.0.1:27017/heart-health');
-// const db = mongoose.connection;
-// db.on("error",console.error.bind(console,"connection error:"));
-// db.once("open", ()=>{
-//     console.log("Database Connected");
-// })
 mongoose.connect(dbUrl)
     .then(() => {
         console.log("Mongo connection established");
@@ -126,33 +121,46 @@ app.get('/nearbyhospitals', (req, res) => {
 app.get('/predict', isLoggedin, (req, res) => {
     res.render('form');
 });
+app.get('/result', isLoggedin, (req, res) => {
+    res.render('result',{predict_probability: req.session.predict_probability})
+})
 
 
 
-app.post('/predict', isLoggedin, async (req, res) => {
+app.post('/predict', isLoggedin, async(req,res)=>{
 
     const currentDate = new Date();
     // Convert to Indian Standard Time (IST)
     const options = { timeZone: 'Asia/Kolkata', hour12: false };
     const istDate = currentDate.toLocaleString('en-US', options);
     // console.log(istDate); // Output: 1/9/2024, 6:04:56 PM
-    req.body.time = istDate;
+    req.body.time=istDate;
 
-    let predict = new Predict(req.body);
+    let predict= new Predict(req.body);
     await predict.save();
 
-    const pythonProcess = spawn('python', [process.env.prediction_script_path, predict['_id']]);
+    const executePythonProcess = async () => {
+        return new Promise((resolve, reject) => {
+            const pythonProcess = spawn('python', [prediction_script_path, predict['_id']]);
+            pythonProcess.stderr.on('data', (data) => {
+                console.error(`stderr: ${data}`);
+            });
+            pythonProcess.on('close', (code) => {
+                console.log(`Python script exited with code ${code}`);
+                // Resolve the promise after the process has ended
+                if (code === 0) {
+                    resolve();
+                } else {
+                    reject(new Error(`Python process exited with an error: ${code}`));
+                }
+            });
+        });
+    };
+    
 
-    pythonProcess.stdout.on('data', (buffer) => {
-        // const output = buffer.toString().trim();
-        // console.log(output)
-    });
-    pythonProcess.stderr.on('data', (data) => {
-        console.error(`stderr: ${data}`);
-    });
-    pythonProcess.on('close', async (code) => {
-        console.log(`Python script exited with code ${code}`);
-
+    try {
+        await executePythonProcess();
+        // Code will run after python process has ended 
         if (req.isAuthenticated()) {
             try {
                 const user = await User.findById(req.user._id);
@@ -171,12 +179,13 @@ app.post('/predict', isLoggedin, async (req, res) => {
             }
         }
 
-        predict = await Predict.findById(predict._id)
-        console.log("PREDICT PROBABILITY IS", parseFloat(predict.predict_probability))
-        res.render('result', { predict_probability: parseFloat(predict.predict_probability) })
-
-    });
-
+        predict= await Predict.findById(predict._id)
+        console.log("PREDICT PROBABILITY IS",parseFloat(predict.predict_probability))
+        req.session.predict_probability=parseFloat(predict.predict_probability)
+        res.redirect('/result')
+    } catch (error) {
+        console.error("Error executing Python process:", error);
+    }
 });
 
 
@@ -185,24 +194,10 @@ app.post('/predict', isLoggedin, async (req, res) => {
 
 
 app.get('/logout', (req, res) => {
-
-
-
-    // console.log('Session ID before logout:', req.sessionID); // Log session ID before logout
-    // console.log('Session data before logout:', req.session); // Log session data before logout
-
     req.logout(() => { });  // Provide an empty callback function
-
-    // console.log('Session ID after logout:', req.sessionID); // Log session ID after logout
-    // console.log('Session data after logout:', req.session); // Log session data after logout
-
-
-
     res.redirect('/');
-    req.flash('success', 'Logged out');
-
-
-})
+    req.flash('success','Logged out');
+});
 
 
 
@@ -216,11 +211,6 @@ app.post('/signup', async (req, res) => {
         const { username, password } = req.body;
         const user = new User({ username });
         const registeredUser = await User.register(user, password);
-        // console.log(registeredUser);
-        // res.redirect('/');
-
-
-
 
         // Automatically log in the user after successful registration
         req.login(registeredUser, (err) => {
