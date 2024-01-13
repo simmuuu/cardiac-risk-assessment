@@ -17,7 +17,7 @@
                             <select class="form-select" name="Sex" aria-label="Gender" id="gender" required>
                                 <option selected>Select Gender</option>
                                 <option value="1">Male</option>
-                                <option  value="0">Female</option>
+                                <option value="0">Female</option>
                             </select>
                         </div>
                     </div>
@@ -26,7 +26,8 @@
                     <div class="row mt-2">
                         <div class="col-3 col-lg-2">
                             <label for="Height" class="form-label">Height (cm)</label>
-                            <input type="number" name="height" class="form-control" id="Height" min="50" max="251" required>
+                            <input type="number" name="height" class="form-control" id="Height" min="50" max="251"
+                                required>
                         </div>
 
                         <div class="col-3 col-lg-2">
@@ -60,15 +61,33 @@
                                 <input class="form-check-input" type="checkbox" name="Stroke" id="Stroke" value="1">
                                 <label class="form-check-label" for="Stroke">Stroke</label>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="row mt-5">
+                        <div class="form-group">
+                            <label for="diabetes">Which type of diabetes do you suffer from?</label>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="Diabetes" id="Diabetes" value="2">
+                                <input class="form-check-input" type="radio" name="Diabetes" id="DiabetesNONE"
+                                    value="0">
+                                <label class="form-check-label" for="DiabetesNONE">None</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Diabetes" id="DiabetesPRE" value="1">
+                                <label class="form-check-label" for="DiabetesPRE">Pre-Diabetes</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Diabetes" id="Diabetes" value="2">
                                 <label class="form-check-label" for="Diabetes">Diabetes</label>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Row 4 -->
+                    <!-- Row 5 -->
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="activities">Do you indulge in any of the following activities?</label>
@@ -93,7 +112,7 @@
                         </div>
                     </div>
 
-                    <!-- Row 5 -->
+                    <!-- Row 6 -->
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="diet">Does your diet include these food items?</label>
@@ -110,7 +129,7 @@
                         </div>
                     </div>
 
-                    <!-- Row 6 -->
+                    <!-- Row 7 -->
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="GenHlth" class="form-label">How would you rate your General Health?</label>
@@ -119,24 +138,27 @@
                         </div>
                     </div>
 
-                    <!-- Row 7 -->
+                    <!-- Row 8 -->
                     <div class="row mt-5">
-                        <label for="Hlth">How much would you rate your Physical & Mental Health? <h5>(On a range of
-                                1-30)</h5></label>
+                        <label for="Hlth">Within the past 30 Days, how many days did you suffer from Bad Physical &
+                            Mental Health? <h5>(On a range of
+                                0-30)</h5></label>
 
                         <div class="row mt-2">
                             <div class="col-4 col-lg-3">
                                 <label for="PhysHlth" class="form-label">Physical Health</label>
-                                <input type="number" name="PhysHlth" class="form-control" id="PhysHlth" min="1" max="30" required>
+                                <input type="number" name="PhysHlth" class="form-control" id="PhysHlth" min="0" max="30"
+                                    required>
                             </div>
                             <div class="col-4 col-lg-3">
                                 <label for="MentHlth" class="form-label">Mental Health</label>
-                                <input type="number" name="MentHlth" class="form-control" id="MentHlth" min="1" max="30" required>
+                                <input type="number" name="MentHlth" class="form-control" id="MentHlth" min="0" max="30"
+                                    required>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Row 8 -->
+                    <!-- Row 9 -->
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="CholCheck">Are your cholesterol levels regularly checked?</label>
@@ -155,9 +177,9 @@
                         </div>
                     </div>
 
-                    
 
-                    <!-- Row 9 -->
+
+                    <!-- Row 10 -->
                     <div class="row mt-5">
                         <div class="form-group">
                             <label for="DiffWalk">Do you have difficulty walking?</label>
