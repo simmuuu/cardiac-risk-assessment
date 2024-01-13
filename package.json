@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start":"python\\venv\\Scripts\\activate && node index.js",
+    "dev": "python\\venv\\Scripts\\activate && nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
