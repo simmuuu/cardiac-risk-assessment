@@ -125,7 +125,27 @@ app.get('/result', isLoggedin, (req, res) => {
     res.render('result',{predict_probability: req.session.predict_probability})
 })
 
-
+app.get('/analysis' , isLoggedin , async(req, res) => {
+    let allPredictions ={};
+    let number=0;
+    if (req.isAuthenticated()) {
+        try {
+            const user = await User.findById(req.user._id);
+            if (user) {
+                for (const predict_Id of user.predicts){
+                    const predict = await Predict.findById(predict_Id);
+                    if(predict) allPredictions[`prediction${number++}`] = predict;
+                }
+            } else {
+                console.log("User not found");
+            }
+        } catch (error) {
+            console.error("Error user not found in database", error);
+        }
+    }
+    console.log(allPredictions)
+    res.render('analysis',{allPredictions});
+})
 
 app.post('/predict', isLoggedin, async(req,res)=>{
 

@@ -32,11 +32,11 @@ function printHospitals(hospital){
 
   let ul= document.getElementsByTagName('ul')[1] // as navbar is also a ul , we need to select second one
   if(liCount<10 && hospital.tags.name){
-    console.log(hospital)
     let li=document.createElement('li')
     li.textContent=hospital.tags.name
     ul.appendChild(li)
     liCount++;
+    console.log(hospital)
   }
 
   // let list_of_hospitals= document.querySelector('.list_of_hospitals')
@@ -118,7 +118,7 @@ function initMap() {
   });
 
 
-  var searchRadius = 3000; // Search radius in meters
+  var searchRadius = 7000; // Search radius in meters
   // Search for hospitals using OpenStreetMap API
   searchForHospitals(userLatitude, userLongitude, searchRadius)
     .then(hospitals => {
