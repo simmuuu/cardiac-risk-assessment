@@ -32,19 +32,12 @@ function printHospitals(hospital){
 
   let ul= document.getElementsByTagName('ul')[1] // as navbar is also a ul , we need to select second one
   if(liCount<10 && hospital.tags.name){
+    console.log(hospital)
     let li=document.createElement('li')
     li.textContent=hospital.tags.name
     ul.appendChild(li)
     liCount++;
   }
-
-
-
-
-
-
-
-
 
   // let list_of_hospitals= document.querySelector('.list_of_hospitals')
   // let ul = document.createElement('ul')
@@ -91,6 +84,7 @@ function searchForHospitals(latitude, longitude, radius) {
 // Function to add hospital markers to a Bing Map
 function addHospitalMarkers(map, hospitals) {
   hospitals.forEach(hospital => {
+    // console.log(hospital)
     var latitude = hospital.lat;
     var longitude = hospital.lon;
 

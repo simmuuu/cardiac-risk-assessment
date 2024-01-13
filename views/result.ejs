@@ -1,1 +1,69 @@
-<%- include('partials/head', { cssPath: '/css/main-page-styles.css' }) %>
+<%- include('partials/head', { cssPath: '/css/result.css' }) %>
+
+    <!-- [0 - 0.2; LOW], [0.2 - 0.4; MED], [0.4-1.0;HIGH] -->
+
+    <body>
+        <!-- High Probability -->
+        <% if (predict_probability>= 0.4){ %>
+
+            <p>You have a <span id="resultPerHigh">
+                    <%= parseFloat(predict_probability * 100).toFixed(2) %>%
+                </span>chance of encountering a cardiac arrest</p>
+
+            <div class="suggestionPara">
+                Our assessment indicates a potential risk of cardiac issues, it's highly recommended to prioritize your
+                health
+                by visiting the nearest cardiac care hospital. Additionally, for ongoing well-being, we strongly
+                recommend
+                adopting a heart-healthy lifestyle. This includes maintaining a balanced diet and incorporating a
+                personalized
+                exercise routine into your daily regimen. Below, you'll find essential details such as <strong>Nearest
+                    Hospitals</strong> & <strong>Contant Numbers</strong>.
+            </div>
+
+            <a href="/nearbyhospitals"><button>Click Here to Check Nearby Hospitals</button></a>
+
+            <!-- Medium Probability -->
+            <%} else if (predict_probability < 0.4 && predict_probability>= 0.2){ %>
+
+                <p>You have a <span id="resultPerMed">
+                        <%= (predict_probability * 100).toFixed(2) %>%
+                        </span>chance of encountering a cardiac arrest</p>
+
+                <a href="/nearbyhospitals"><button>Click Here to Check Nearby Hospitals</button></a>
+
+            <!-- Low Probability -->
+
+                <%} else if (predict_probability < 0.2 && predict_probability>= 0){ %>
+
+                <p>You have a <span id="resultPerLow">
+                        <%= (predict_probability * 100).toFixed(2) %>%
+                        </span>chance of encountering a cardiac arrest</p>
+
+                <div class="lowProbForm">
+                    <div class="mb-3">
+                        <label for="DietRoutine" class="form-label">Your Diet Routine</label>
+                        <textarea class="form-control" id="DietRoutine" rows="5" name="DietRoutine"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="ExerciseRoutine" class="form-label">Your Exercise Routine</label>
+                        <textarea class="form-control" id="ExerciseRoutine" rows="5" name="ExerciseRoutine"></textarea>
+                      </div>
+                </div>
+
+            
+                <div class="lowProbButtons">
+                    <button type="submit">Submit</button>
+                    <a href="/nearbyhospitals"><button>Click Here to Check Nearby Hospitals</button></a>
+                </div>
+
+            <% } else if (predict_probability == NaN) { %>
+
+                <h2>Error Code 69. Report to Developers</h2>
+
+            <% } else { %>
+
+                <h2>Inappropriate Request: Prediction Result Couldn't be Found.</h2>
+            
+            <% } %>
+    </body>

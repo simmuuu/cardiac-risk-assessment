@@ -1,0 +1,97 @@
+:root {
+    --text: #0f0f0f;
+    --background: #fffaf5;
+    --primary: #ad1105;
+    --secondary: #fe8e86;
+    --accent: #ff4133;
+
+    font-family: 'Poppins', ui-sans-serif;
+    --font-scale: 1.333;
+    --p: 1rem;
+    --h5: calc(var(--p) * var(--font-scale));
+    --h4: calc(var(--h5) * var(--font-scale));
+    --h3: calc(var(--h4) * var(--font-scale));
+    --h2: calc(var(--h3) * var(--font-scale));
+    --h1: calc(var(--h2) * var(--font-scale));
+    --small: calc(var(--p) / var(--font-scale));
+
+    --margin-lg: 0 12%;
+    --margin-md: 0 6%;
+
+    --border1: 1rem;
+    --border05: 0.5rem;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--background);
+}
+
+#resultPerHigh {
+    font-size: var(--h2);
+    font-weight: 700;
+    color: #e60049;
+
+}
+
+#resultPerMed {
+    font-size: var(--h2);
+    font-weight: 700;
+    color: #ffa300;
+}
+
+#resultPerLow {
+    font-size: var(--h2);
+    font-weight: 700;
+    color: #50e991;
+}
+
+p {
+    text-align: center;
+    font-size: var(--h4);
+    font-weight: 400;
+}
+
+button {
+    color: #0f0f0f;
+
+    padding: 0.5em 2em;
+    background-color: rgba(254, 142, 134, 0.3);
+    border-radius: 0.5rem;
+    border-color: transparent;
+    font-size: 1rem;
+
+    margin: 0;
+    line-height: 1.75;
+
+    transition: transform ease 0.2s, box-shadow ease 0.2s;
+}
+
+button:hover {
+    transform: translate(0, -3px);
+}
+
+.suggestionPara {
+    font-size: var(--h5);
+    text-align: center;
+    width: 75%;
+    margin-bottom: 1em;
+}
+
+.lowProbForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+
+    width: 75%;
+}
+
+.lowProbButtons {
+    display: flex;
+    justify-content: space-between;
+}
