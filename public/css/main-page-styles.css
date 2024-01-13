@@ -167,6 +167,13 @@ h1 span {
 }
 
 
+.hero .main-image {
+    display: flex;
+    align-items: center;
+    opacity: 85%;
+}
+
+
 .features {
     width: 100%;
     display: flex;
@@ -564,18 +571,22 @@ a {
 @media screen and (max-width: 1000px) {
     main {
         gap: 2em;
-        margin: 2rem 5% 0 5%;
+        margin: 1rem 5% 0 5%;
         overflow: visible !important;
+        width: 100%;
     }
 
     .hero {
         flex-direction: column-reverse;
         align-items: center;
         gap: 2em;
-        flex-wrap: wrap;
         justify-content: flex-start;
         margin: 0 6rem;
         height: 90vh;
+    }
+
+    .hero .main-image {
+        display: none;
     }
 
     .hero .main-text {
@@ -589,5 +600,59 @@ a {
     .buttons {
         flex-direction: column;
         gap: 0.4em;
+    }
+
+    .card-section {
+        flex-direction: column;
+    }
+
+    .feature-card h4 {
+        text-align: center;
+    }
+
+    .bento-wrapper {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(4,1fr) !important;
+    }
+
+    .bento-wrapper li {
+        padding: 5rem 1rem;
+    }
+
+    .bento .one, .bento .two, .bento .three, .bento .four  {
+        grid-area: auto !important;
+    }
+
+    .info {
+        gap: 2rem;
+        flex-direction: column;
+        padding: 2em 4em;
+        align-items: center;
+    }
+
+    .info .left {
+        width: 120%;
+    }
+
+    .info .right {
+        gap: 2rem;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .info .step {
+        width: 100%;
+    }
+
+    .faq {
+        flex-direction: column;
+    }
+
+    .faq .left {
+        align-items: center;
+    }
+
+    .faq .faqlist {
+        width: 100%;
     }
 }
