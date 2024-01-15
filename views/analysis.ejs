@@ -1,3 +1,144 @@
-<h1> <%= allPredictions %></h1>
-<h3>hello</h3>
-<!-- <%  //for (const predict of allPredictions){ %> -->
+<%- include('partials/head', { cssPath: '/css/analysis.css' }) %>
+<%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
+
+    <body>
+        <main>
+        <h1>Analysis</h1>
+
+        <% if (Object.keys(allPredictions).length !== 0) { %>
+        <table class="table table-group-divider table-striped" id="table">
+            <thead>
+            <tr class="table-dark">
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Date of Prediction</th>
+                <th scope="col">Risk</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <div id="additionalInfo"></div>
+        <% } else if (Object.keys(allPredictions).length === 0) { %>
+            <h2>Predict your Heart Health!</h2>
+            <img src="https://media1.tenor.com/m/bXAKEBgc_D0AAAAC/do-it-what-are-you-waiting-for.gif" alt="image" style="height: auto; width: 20%; align-self: center;">
+        <% } %>
+    </main> 
+
+        <script>
+            var allPredictions = <%- JSON.stringify(allPredictions) %>;
+            const tableBody = document.getElementById('tableBody');
+            const additionalInfo = document.getElementById('additionalInfo');
+            console.log(allPredictions);
+            tableBuilder(allPredictions);
+
+            function tableBuilder(data) {
+                let i = 1;
+                for (let predictionKey in data) {
+                    let prediction = data[predictionKey];
+
+                    // Intial Table Builder
+                    let row = `<tr>
+                                <td>${i}</td>
+                                <td>${prediction.name}</td>
+                                <td>${prediction.time}</td>
+                                <td>${(parseFloat(prediction.predict_probability) * 100).toFixed(2)}</td>
+                                <td><button type="button" class="secondary" data-bs-toggle="modal" data-bs-target="#prediction${i}">...</button></td>
+                                </tr>`
+                    tableBody.innerHTML += row;
+
+                    // Additional Info Builder
+                    let info = `<div class="modal fade" id="prediction${i}" tabindex="-1" aria-labelledby="ModalLabel${i}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="ModalLabel${i}">Form Answers</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="info-name">
+                                                    <h4>Name: </h4>
+                                                    <p>${prediction.name}</p>
+                                                </div>
+                                                <div class="info-gender">
+                                                    <h4>Gender: </h4>
+                                                    <p>${prediction.Sex === 0 ? "Female" : "Male"}</p>
+                                                </div>
+                                                <div class="info-age">
+                                                    <h4>Age: </h4>
+                                                    <p>${prediction.Age}</p>
+                                                </div>
+                                                <div class="info-height">
+                                                    <h4>Height: </h4>
+                                                    <p>${prediction.height}cm</p>
+                                                </div>
+                                                <div class="info-weight">
+                                                    <h4>Weight: </h4>
+                                                    <p>${prediction.weight}kg</p>
+                                                </div>
+                                                <div class="info-HighBP">
+                                                    <h4>High Blood Pressure: </h4>
+                                                    <p>${prediction.HighBP === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-HighChol">
+                                                    <h4>High Cholesterol: </h4>
+                                                    <p>${prediction.HighChol === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-Stroke">
+                                                    <h4>Stroke: </h4>
+                                                    <p>${prediction.Stroke === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-Diabetes">
+                                                    <h4>Diabetes: </h4>
+                                                    <p>${prediction.Diabetes === 0 ? "None" : prediction.Diabetes === 1 ? "Pre-Diabetes" : "Diabetes"}</p>
+                                                </div>
+                                                <div class="info-Smoker">
+                                                    <h4>Smoking: </h4>
+                                                    <p>${prediction.Smoker === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-HvyAlcoholConsump">
+                                                    <h4>Heavy Alcohol Consumption: </h4>
+                                                    <p>${prediction.HvyAlcoholConsump === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-PhysActivity">
+                                                    <h4>Physical Activity: </h4>
+                                                    <p>${prediction.PhysActivity === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-diet">
+                                                    <h4>You eat: </h4>
+                                                    <p>${prediction.Fruits === 0 ? "" : "Fruits"} ${prediction.Veggies === 0 ? "" : "Veggies"}</p>
+                                                </div>
+                                                <div class="info-GenHlth">
+                                                    <h4>General Health: </h4>
+                                                    <p>${prediction.GenHlth}</p>
+                                                </div>
+                                                <div class="info-PhysHlth">
+                                                    <h4>You suffered <span>${prediction.PhysHlth}</span> days of Bad Physical Health.</h4>
+                                                </div>
+                                                <div class="info-MentHlth">
+                                                    <h4>You suffered <span>${prediction.MentHlth}</span> days of Bad Mental Health.</h4>
+                                                </div>
+                                                <div class="info-CholCheck">
+                                                    <h4>Regular Cholesterol Levels Checkup: </h4>
+                                                    <p>${prediction.CholCheck === 0 ? "False" : "True"}</p>
+                                                </div>
+                                                <div class="info-DiffWalk">
+                                                    <h4>Difficulty Walking: </h4>
+                                                    <p>${prediction.DiffWalk === 0 ? "False" : "True"}</p>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="secondary" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`
+
+                    additionalInfo.innerHTML += info;
+
+                    i += 1;
+                }
+            }
+        </script>
+    </body>

@@ -1,8 +1,10 @@
 <%- include('partials/head', { cssPath: '/css/result.css' }) %>
+<%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 
     <!-- [0 - 0.2; LOW], [0.2 - 0.4; MED], [0.4-1.0;HIGH] -->
 
     <body>
+        <main>
         <!-- High Probability -->
         <% if (predict_probability>= 0.4){ %>
 
@@ -66,4 +68,5 @@
                 <h2>Inappropriate Request: Prediction Result Couldn't be Found.</h2>
             
             <% } %>
+        </main>
     </body>

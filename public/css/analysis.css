@@ -22,41 +22,38 @@
     --border05: 0.5rem;
 }
 
-main {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+body {
     background-color: var(--background);
 }
 
-#resultPerHigh {
-    font-size: var(--h2);
-    font-weight: 700;
-    color: #e60049;
-
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
-#resultPerMed {
-    font-size: var(--h2);
-    font-weight: 700;
-    color: #ffa300;
-}
-
-#resultPerLow {
-    font-size: var(--h2);
-    font-weight: 700;
-    color: #50e991;
-}
-
-p {
+h1 {
+    margin-top: 0.2em;
+    font-size: var(--h1);
     text-align: center;
-    font-size: var(--h4);
-    font-weight: 400;
 }
 
-button {
+h2 {
+    text-align: center;
+    margin-top: 10%;
+}
+
+#table {
+    align-self: center;
+    width: 80%;
+}
+
+.secondary {
     color: #0f0f0f;
 
     padding: 0.5em 2em;
@@ -65,33 +62,22 @@ button {
     border-color: transparent;
     font-size: 1rem;
 
+    display: block;
+    margin-left: 100%;
+    margin-right: 0;
+
     margin: 0;
     line-height: 1.75;
 
     transition: transform ease 0.2s, box-shadow ease 0.2s;
 }
 
-button:hover {
-    transform: translate(0, -3px);
+.secondary:hover {
+    background-color: rgba(148, 51, 46, 0.5);;
 }
 
-.suggestionPara {
-    font-size: var(--h5);
-    text-align: center;
-    width: 75%;
-    margin-bottom: 1em;
-}
-
-.lowProbForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
-
-    width: 75%;
-}
-
-.lowProbButtons {
-    display: flex;
-    justify-content: space-between;
+@media screen and (max-width: 1000px){
+    #table {
+        width: 100%;
+    }
 }

@@ -31,6 +31,9 @@
     margin-left: 37.5%;
     margin-top: 0.5%;
     line-height: 0.3;
+
+    position:fixed; 
+    z-index:9999; 
   }
 
 
@@ -64,12 +67,12 @@
       // Set a timeout to remove the flash message after the animation completes
       setTimeout(() => {
         flashMessage.classList.add('hidden');  // Hide the flash message
-      }, 500);  // Wait for the animation duration (0.5 seconds)
+      }, 1500);  // Wait for the animation duration (2 seconds)
 
       // Remove the flash message from the DOM after the animation completes
       setTimeout(() => {
         flashMessage.remove();
-      }, 1000);  // Wait for the animation duration plus an additional delay (1 second)
+      }, 2000);  // Wait for the animation duration plus an additional delay (1 second)
     }
   });
 </script>
