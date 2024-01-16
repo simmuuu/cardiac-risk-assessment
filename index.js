@@ -1,16 +1,19 @@
-const { log } = require('console');
 const dotenv = require('dotenv');
+
 const express = require('express');
 const app = express();
 const path = require('path');
-const mongoose = require('mongoose');
+const bodyParser = require('body-parser')
+
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const bodyParser = require('body-parser')
 const flash = require('connect-flash');
-const { spawn } = require('child_process');
 
+const mongoose = require('mongoose');
+const MongoDBStore = require('connect-mongo');
+
+const { spawn } = require('child_process');
 
 const User = require('./models/user');
 const Predict = require('./models/predict_info');
@@ -22,7 +25,6 @@ dotenv.config();
 
 dbUrl=process.env.dbUrl;
 secretSessionKey=process.env.secretSessionKey;
-prediction_script_path=process.env.prediction_script_path;
 
 mongoose.connect(dbUrl)
     .then(() => {
@@ -49,16 +51,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-
+const store = MongoDBStore.create({
+    mongoUrl: dbUrl,
+    secret: secretSessionKey,
+    touchAfter: 30*60//this is 30mins (//24*60*60 //24hours in seconds)
+});
+store.on("error",function(e){
+    console.log("Session Store Error")
+});
 
 const sessionConfig = {
+    store,
     secret: secretSessionKey,
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        expires: new Date(Date.now() + 1000 * 60 * 60), //1hour
-        maxAge: 1000 * 60 * 60 //1hour
+        expires: new Date(Date.now() + 1000 * 60 * 60), //1hour in milliseconds
+        maxAge: 1000 * 60 * 60 //1hour in milliseconds
 
     }
 }
@@ -85,7 +95,7 @@ app.use((req, res, next) => {
 
 
 
-//middleware------------
+// custom middleware-------------
 const isLoggedin = (req, res, next) => {
     if (!req.isAuthenticated()) {
         req.flash('error', 'Login in required')
@@ -93,7 +103,7 @@ const isLoggedin = (req, res, next) => {
     }
     next();
 }
-//middleware---------------
+//custom middleware---------------
 
 
 
@@ -159,9 +169,10 @@ app.post('/predict', isLoggedin, async(req,res)=>{
     let predict= new Predict(req.body);
     await predict.save();
 
+
     const executePythonProcess = async () => {
         return new Promise((resolve, reject) => {
-            const pythonProcess = spawn('python', [prediction_script_path, predict['_id']]);
+            const pythonProcess = spawn('python', [path.join(__dirname,'/python/prediction_script.py'), predict['_id']]);
             pythonProcess.stderr.on('data', (data) => {
                 console.error(`stderr: ${data}`);
             });
