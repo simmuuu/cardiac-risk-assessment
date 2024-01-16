@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"python\\venv\\Scripts\\activate && node index.js",
+    "start": "python\\venv\\Scripts\\activate && node index.js",
     "dev": "python\\venv\\Scripts\\activate && nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +14,7 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
