@@ -3,7 +3,8 @@ const dotenv = require('dotenv');
 const express = require('express');
 const app = express();
 const path = require('path');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
 const session = require('express-session');
 const passport = require('passport');
@@ -49,6 +50,7 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'));
 
 
 const store = MongoDBStore.create({
@@ -157,6 +159,33 @@ app.get('/analysis' , isLoggedin , async(req, res) => {
     res.render('analysis',{allPredictions});
 })
 
+
+
+app.delete('/analysis/:_id', isLoggedin, async(req, res) =>{
+    const {_id} = req.params;
+    if (req.isAuthenticated()) {
+        try {
+            await User.updateOne({_id:req.user._id},{$pull:{predicts:_id}});
+            await Predict.deleteOne({_id});
+            } catch(error) {
+            console.log("Error in Delete route :", error);
+        }
+    }
+    res.redirect('/analysis');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post('/predict', isLoggedin, async(req,res)=>{
 
     const currentDate = new Date();
@@ -218,6 +247,25 @@ app.post('/predict', isLoggedin, async(req,res)=>{
         console.error("Error executing Python process:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

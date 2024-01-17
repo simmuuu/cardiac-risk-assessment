@@ -129,7 +129,11 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
+                                                <form method="POST" action="/analysis/${prediction._id}?_method=DELETE">
+                                                    <button type="submit" class="secondary">Delete</button>
+                                                </form>
                                                 <button type="button" class="secondary" data-bs-dismiss="modal">Close</button>
+
                                             </div>
                                         </div>
                                     </div>
@@ -141,4 +145,5 @@
                 }
             }
         </script>
+
     </body>
