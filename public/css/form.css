@@ -1,66 +1,69 @@
 body {
-    background-color: #fffaf5;
+  background-color: #fffaf5;
 }
 
 .container {
-    margin-top: 2em;
-    margin-bottom: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .form-control:focus {
-    color: #212529;
-    background-color: #fff;
-    border-color: #ff4133;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
+  color: #212529;
+  background-color: #fff;
+  border-color: #ff4133;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
 }
 
 .form-select:focus {
-    border-color: #ff4133;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
+  border-color: #ff4133;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
 }
 
-.form-group>label,
-.row>label {
-    font-size: 1.4em;
+.form-group > label,
+.row > label {
+  font-size: 1.4em;
 }
 
 input[type="checkbox"]:focus,
 input[type="radio"]:focus {
-    border-color: #ad1105;
-    box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
+  border-color: #ad1105;
+  box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
 }
-.form-check-label,.form-check-input{
-    cursor: pointer;
+
+.form-check-label,
+.form-check-input {
+  cursor: pointer;
 }
+
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
-    background-color: #ff4133;
-    border-color: #ad1105;
-    box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
+  background-color: #ff4133;
+  border-color: #ad1105;
+  box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
 }
 
 a {
-    color: #ff4133;
+  color: #ff4133;
 }
 
 .primary {
-    color: #fff;
+  color: #fff;
 
-    padding: 0.5em 1.5em;
-    background-color: #ad1105;
-    border-radius: 0.5rem;
-    border-color: transparent;
-    font-size: 1rem;
+  padding: 0.5em 1.5em;
+  background-color: #ad1105;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  font-size: 1rem;
 
-    margin: 0;
-    line-height: 1.75;
+  margin: 0;
+  line-height: 1.75;
 
-    transition: transform ease 0.2s, box-shadow ease 0.2s;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
 }
 
 .primary:hover {
-    transform: translate(0, -3px);
-    box-shadow: 0 20px 80px -10px #ad1105;
+  transform: translate(0, -3px);
+  box-shadow: 0 20px 80px -10px #ad1105;
 }
