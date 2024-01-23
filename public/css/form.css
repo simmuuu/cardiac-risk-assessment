@@ -31,7 +31,9 @@ input[type="radio"]:focus {
     border-color: #ad1105;
     box-shadow: 0 0 0 0.25rem rgba(255, 65, 51, 0.25);
 }
-
+.form-check-label,.form-check-input{
+    cursor: pointer;
+}
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
     background-color: #ff4133;
