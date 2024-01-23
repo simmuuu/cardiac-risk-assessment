@@ -52,8 +52,10 @@ main {
 
 p {
     text-align: center;
-    font-size: var(--h4);
+    font-size: var(--h5);
     font-weight: 400;
+    margin: 10px 90px; 
+    margin-bottom: 30px;
 }
 
 button {

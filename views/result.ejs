@@ -13,6 +13,7 @@
                 </span>chance of encountering a cardiac arrest</p>
 
             <div class="suggestionPara">
+                <p>
                 We understand that receiving news about a higher risk of heart issues can be concerning and overwhelming.
                 Your heart is at the center of your well-being, and we want to support you on your journey towards better health.
                 Please know that this prediction is not meant to cause fear but to empower you to take proactive steps.
@@ -22,7 +23,8 @@
                 Remember, your well-being is worth prioritizing.
                 Wishing you strength and good health.
                 Below, you'll find essential details such as <strong>Nearest
-                    Hospitals</strong> & <strong>Contant Numbers</strong>.
+                    Hospitals</strong> & <strong>Contact Numbers</strong>.
+                </p>
             </div>
 
             <a href="/nearbyhospitals"><button>Click Here to Check Nearby Hospitals</button></a>
@@ -34,12 +36,14 @@
                         <%= (predict_probability * 100).toFixed(2) %>%
                         </span>chance of encountering a cardiac arrest</p>
                         <div>
+                            <p>
                             Your heart health prediction indicates a medium risk, and we want to empower you to make informed choices for a healthier future. While the risk level is not alarming, it's a crucial moment to take preventive measures.
                             Consider incorporating heart-healthy habits into your lifestyle, such as maintaining a balanced diet, engaging in regular physical activity, and managing stress.
                             Monitoring your health and staying connected with healthcare professionals can play a key role in reducing potential risks.
                             Remember, every positive step you take towards a healthier lifestyle contributes to the well-being of your heart.
                             Take charge of your health, and feel free to consult with a healthcare expert for personalized advice.
                             Wishing you a journey to improved heart health.
+                            </p>
                         </div>
 
                 <a href="/nearbyhospitals"><button>Click Here to Check Nearby Hospitals</button></a>
@@ -52,6 +56,7 @@
                         <%= (predict_probability * 100).toFixed(2) %>%
                         </span>chance of encountering a cardiac arrest</p>
                         <div>
+                            <p>
                             Great news! Your heart health prediction indicates a low risk, reflecting positive choices and a healthy lifestyle.
                             Congratulations on your commitment to well-being!
                             While your risk is currently low, it's essential to maintain these positive habits.
@@ -60,13 +65,14 @@
                             Your dedication to a healthy lifestyle is a significant investment in your long-term well-being.
                             Keep up the excellent work and help us improve by providing useful insights below. 
                             Wishing you continued well-being.
+                            </p>
                         </div>
 
                 <div class="lowProbForm">
                     <div class="mb-3">
                         <label for="DietRoutine" class="form-label">
                             What are your health goals and dietary preferences? <br>
-                            This information will help us to improve the advice for your diet routine.</label>
+                            (Sharing this information helps us customize advice to fit your diet and enhance your well-being.)</label>
                         <textarea class="form-control" id="DietRoutine" rows="5" name="DietRoutine"></textarea>
                       </div>
                       <div class="mb-3">
