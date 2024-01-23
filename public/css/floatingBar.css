@@ -1,0 +1,46 @@
+:root {
+  --text: #0f0f0f;
+  --background: #fffaf5;
+  --primary: #ad1105;
+  --secondary: #fe8e86;
+  --accent: #ff4133;
+}
+
+.float-menu {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  bottom: 3%;
+
+  background-color: rgba(254, 142, 134, 0.7);
+  border-radius: 12px;
+}
+
+.float-menu ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+
+  padding: 0.5em 0.4em;
+  margin: 0%;
+
+  list-style: none;
+}
+
+.primaryFloating {
+  color: #fff;
+
+  padding: 0.5em 2em;
+  background-color: var(--primary);
+  border-radius: 0.5rem;
+  border-color: transparent;
+  font-size: 1rem;
+
+  margin: 0;
+  line-height: 1.75;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
+}
+
+.primaryFloating:hover {
+  box-shadow: 0 20px 80px -10px var(--primary);
+}
