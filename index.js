@@ -97,7 +97,7 @@ app.use((req, res, next) => {
 
 
 
-// custom middleware-------------
+// custom Loggedin middleware-------------
 const isLoggedin = (req, res, next) => {
     if (!req.isAuthenticated()) {
         req.flash('error', 'Login in required')
@@ -105,7 +105,7 @@ const isLoggedin = (req, res, next) => {
     }
     next();
 }
-//custom middleware---------------
+
 
 
 
@@ -127,7 +127,7 @@ app.get('/aboutus', (req, res) => {
 app.get('/freeopinion', (req, res) => {
     res.render('freeOpinion');
 });
-app.get('/nearbyhospitals', (req, res) => {
+app.get('/nearbyhospitals', isLoggedin, (req, res) => {
     res.render('nearbyHospitals');
 });
 app.get('/predict', isLoggedin, (req, res) => {
@@ -274,8 +274,8 @@ app.post('/predict', isLoggedin, async(req,res)=>{
 
 app.get('/logout', (req, res) => {
     req.logout(() => { });  // Provide an empty callback function
-    res.redirect('/');
     req.flash('success','Logged out');
+    res.redirect('/');
 });
 
 
