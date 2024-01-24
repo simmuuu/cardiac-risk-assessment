@@ -30,7 +30,7 @@ function printHospitals(hospital){
 
 
 
-  let ul= document.getElementsByTagName('ul')[1] // as navbar is also a ul , we need to select second one
+  let ul= document.getElementsByTagName('ul')[2] // as navbar is also a ul , we need to select second one
   if(liCount<10 && hospital.tags.name){
     let li=document.createElement('li')
     li.textContent=hospital.tags.name
