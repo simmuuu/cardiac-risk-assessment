@@ -71,9 +71,9 @@ const sessionConfig = {
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 60 * 60), //1hour in milliseconds
         maxAge: 1000 * 60 * 60 //1hour in milliseconds
-
     }
 }
+
 app.use(session(sessionConfig));
 app.use(flash());
 

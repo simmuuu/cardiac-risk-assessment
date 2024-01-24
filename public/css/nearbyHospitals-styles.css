@@ -17,9 +17,18 @@
 }
 
 .list_of_hospitals p {
-    font-size: x-large;
+    font-size: 1.8em;
 }
 
 .list_of_hospitals li {
     font-size: large;
+    margin-bottom: 3%;
+}
+
+
+
+.list_of_hospitals a::after {
+    content: url('/images/icons/external-link.svg');
+    display: inline-block;
+    margin-left: 5px;
 }
