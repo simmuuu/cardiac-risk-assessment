@@ -92,7 +92,9 @@ button:hover {
 
     width: 75%;
 }
-
+*{
+    background-color: var(--background);
+}
 .lowProbButtons {
     display: flex;
     justify-content: space-between;

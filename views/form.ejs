@@ -3,6 +3,7 @@
     <body>
         <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 
+        <%- include('partials/loader')%>
             <div class="container">
                 <form action="/predict" method="POST" class="row g-3">
 
@@ -215,7 +216,6 @@
                 </form>
             </div>
             
-        <%- include('partials/loader')%>
             <script src="/scripts/form.js"></script>
             <script src="/scripts/loader.js"></script>
     </body>
