@@ -1,6 +1,7 @@
 <%- include('partials/head', { cssPath: '/css/result.css' }) %>
 <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 
+    <%- include('partials/loader')%>
     <!-- [0 - 0.2; LOW], [0.2 - 0.4; MED], [0.4-1.0;HIGH] -->
 
     <body>
@@ -97,4 +98,5 @@
             
             <% } %>
         </main>
+        <script src="/scripts/loader.js"></script>
     </body>

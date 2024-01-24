@@ -3,7 +3,7 @@
 <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 
 <body>
-
+    <%- include('partials/loader')%>
     <div class="row background-img-main">
         <div class="container mt-5 ">
             <div class="row ">
@@ -119,6 +119,8 @@
     </section>
 
     <%- include('partials/footer') %>
+    
+    <script src="/scripts/loader.js"></script>
 
 </body>
 </html>

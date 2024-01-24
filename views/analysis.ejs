@@ -1,7 +1,9 @@
-<%- include('partials/head', { cssPath: '/css/analysis.css' }) %> <%-
+<%- include('partials/head', { cssPath: '/css/analysis.css' }) %> 
+<%-
 include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 
 <body>
+<%- include('partials/loader')%>
   <main>
     <h1>Analysis</h1>
 
@@ -152,4 +154,6 @@ include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
         }
     }
   </script>
+  
+  <script src="/scripts/loader.js"></script>
 </body>
