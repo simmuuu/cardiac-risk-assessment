@@ -1,6 +1,8 @@
 <%- include('partials/head', { cssPath: '/css/faqcs.css' }) %>
+
 <%- include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
 <body>
+  <%- include('partials/loader')%>
   <div class="contentbox">
     <div class="header">
       <h1 class="header-title">FAQ</h1>
@@ -121,5 +123,6 @@
     </div>
   </div>
   <%- include('partials/footer') %>
+  <script src="/scripts/loader.js"></script>
 </body>
 </html>
