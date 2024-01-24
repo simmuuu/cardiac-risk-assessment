@@ -1,7 +1,7 @@
 // taking location from user
 let location_position;
-let userLatitude
-let userLongitude
+let userLatitude;
+let userLongitude;
 const successCallback = (position) => {
     location_position=position
     userLatitude=location_position.coords.latitude
@@ -10,7 +10,7 @@ const successCallback = (position) => {
 
 const errorCallback = (error) => {
     console.log(error);
-    alert("Please enable location permission")
+    alert("Please enable location permission");
 
 };
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
@@ -30,13 +30,20 @@ function printHospitals(hospital){
 
 
 
-  let ul= document.getElementsByTagName('ul')[2] // as navbar is also a ul , we need to select second one
+  let ul= document.getElementsByTagName('ul')[2]; // as navbar is also a ul , we need to select second one
   if(liCount<10 && hospital.tags.name){
-    let li=document.createElement('li')
-    li.textContent=hospital.tags.name
-    ul.appendChild(li)
+    let li=document.createElement('li');
+    if(hospital.tags.website){
+      let anchor=document.createElement('a');
+      anchor.textContent=hospital.tags.name;
+      anchor.href=`${hospital.tags.website}`;
+      li.appendChild(anchor);
+    } else{
+      li.textContent=hospital.tags.name;
+    }
+    ul.appendChild(li);
     liCount++;
-    console.log(hospital)
+    // console.log(hospital);
   }
 
   // let list_of_hospitals= document.querySelector('.list_of_hospitals')
