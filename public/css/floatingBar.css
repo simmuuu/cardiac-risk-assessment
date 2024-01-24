@@ -7,12 +7,13 @@
 }
 
 .float-menu {
+  display: none;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0%);
   bottom: 3%;
 
-  background-color: rgba(254, 142, 134, 0.7);
+  background-color: rgba(255, 65, 51, 0.781);
   border-radius: 12px;
 }
 
@@ -31,7 +32,7 @@
   color: #fff;
 
   padding: 0.5em 2em;
-  background-color: var(--primary);
+  background-color: rgba(255, 177, 171, 0.7);
   border-radius: 0.5rem;
   border-color: transparent;
   font-size: 1rem;

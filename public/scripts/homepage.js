@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const faqBoxes = document.querySelectorAll('.faqbox');
 
@@ -25,4 +24,37 @@ document.addEventListener("DOMContentLoaded", function () {
             faqIcon.classList.toggle('expand');
         });
     });
+
+    const top = document.querySelector('#toPageTop');
+    const menu = document.querySelector('.float-menu');
+
+    document.addEventListener("scroll", () => {
+        const scrollPosi = window.scrollY;
+        console.log(scrollPosi);
+
+        if (scrollPosi > 200) {
+            top.style.display = "block";
+        } else {
+            top.style.display = "none";
+        }
+
+        if (scrollPosi > 500 && scrollPosi < 2000) {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
+        }
+    });
+
+    top.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+
+
+
+
 });
+

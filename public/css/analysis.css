@@ -1,83 +1,93 @@
 :root {
-    --text: #0f0f0f;
-    --background: #fffaf5;
-    --primary: #ad1105;
-    --secondary: #fe8e86;
-    --accent: #ff4133;
+  --text: #0f0f0f;
+  --background: #fffaf5;
+  --primary: #ad1105;
+  --secondary: #fe8e86;
+  --accent: #ff4133;
 
-    font-family: 'Poppins', ui-sans-serif;
-    --font-scale: 1.333;
-    --p: 1rem;
-    --h5: calc(var(--p) * var(--font-scale));
-    --h4: calc(var(--h5) * var(--font-scale));
-    --h3: calc(var(--h4) * var(--font-scale));
-    --h2: calc(var(--h3) * var(--font-scale));
-    --h1: calc(var(--h2) * var(--font-scale));
-    --small: calc(var(--p) / var(--font-scale));
+  font-family: "Poppins", ui-sans-serif;
+  --font-scale: 1.333;
+  --p: 1rem;
+  --h5: calc(var(--p) * var(--font-scale));
+  --h4: calc(var(--h5) * var(--font-scale));
+  --h3: calc(var(--h4) * var(--font-scale));
+  --h2: calc(var(--h3) * var(--font-scale));
+  --h1: calc(var(--h2) * var(--font-scale));
+  --small: calc(var(--p) / var(--font-scale));
 
-    --margin-lg: 0 12%;
-    --margin-md: 0 6%;
+  --margin-lg: 0 12%;
+  --margin-md: 0 6%;
 
-    --border1: 1rem;
-    --border05: 0.5rem;
+  --border1: 1rem;
+  --border05: 0.5rem;
 }
 
 html {
-    scroll-behavior: smooth;
-    font-size: 100%;
+  scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 body {
-    background-color: var(--background);
+  background-color: var(--background);
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
 h1 {
-    margin-top: 0.2em;
-    font-size: var(--h1);
-    text-align: center;
+  margin-top: 0.2em;
+  font-size: var(--h1);
+  text-align: center;
 }
 
 h2 {
-    text-align: center;
-    margin-top: 10%;
+  text-align: center;
+  margin-top: 5%;
 }
 
 #table {
-    align-self: center;
-    width: 80%;
+  align-self: center;
+  width: 80%;
 }
 
 .secondary {
-    color: #0f0f0f;
+  color: #0f0f0f;
 
-    padding: 0.5em 2em;
-    background-color: rgba(254, 142, 134, 0.3);
-    border-radius: 0.5rem;
-    border-color: transparent;
-    font-size: 1rem;
+  padding: 0.5em 2em;
+  background-color: rgba(254, 142, 134, 0.3);
+  border-radius: 0.5rem;
+  border-color: transparent;
+  font-size: 1rem;
 
-    display: block;
-    margin-left: 100%;
-    margin-right: 0;
+  display: block;
+  margin-left: 100%;
+  margin-right: 0;
 
-    margin: 0;
-    line-height: 1.75;
+  margin: 0;
+  line-height: 1.75;
 
-    transition: transform ease 0.2s, box-shadow ease 0.2s;
+  transition: transform ease 0.2s, box-shadow ease 0.2s;
+}
+
+a {
+  text-decoration: none;
+  align-self: center;
 }
 
 .secondary:hover {
-    background-color: rgba(148, 51, 46, 0.5);;
+  background-color: rgba(148, 51, 46, 0.5);
 }
 
-@media screen and (max-width: 1000px){
-    #table {
-        width: 100%;
-    }
+.delete {
+  background-color: #ad1105;
+  color: #fff;
+}
+
+@media screen and (max-width: 1000px) {
+  #table {
+    width: 100%;
+  }
 }
