@@ -91,29 +91,15 @@ def main():
     order=['HighBP', 'HighChol', 'CholCheck', 'BMI', 'Smoker', 'Stroke', 'Diabetes', 'PhysActivity', 'Fruits', 'Veggies', 'HvyAlcoholConsump', 'GenHlth', 'MentHlth', 'PhysHlth', 'DiffWalk', 'Sex', 'Age']
 
 
-    sorted_data = {k: data[k] for k in order}
-    sorted_data = {key: int(value) for key, value in sorted_data.items()}
+    # sorted_data = {k: data[k] for k in order}
+    # sorted_data = {key: int(value) for key, value in sorted_data.items()}
+    sorted_data = {key: int(data[key]) for key in order}
+
     # print("printing sorted_data variable------>",sorted_data)
     data_array = np.array(list(sorted_data.values())).reshape(1,-1)
     predict_probability = str(loaded_model.predict_proba(data_array)[:, 1]).replace('[', '').replace(']', '')
     collection.update_one({"_id": ObjectId(input_id_from_node)}, {"$set":{"predict_probability":predict_probability}})
 
-
-#         data = {key: int(value) for key, value in data.items()}
-
-#         #converting age to the label
-#         data['Age']=age_converter(data['Age'])
-
-#         
-#         
-
-#         data_array = np.array(list(sorted_data.values())).reshape(1,-1)
-
-
-
-#         prediction=loaded_model.predict(data_array)
-#         probabilities_test = loaded_model.predict_proba(data_array)[:, 1]
-#         print(str(probabilities_test))
 
         
 

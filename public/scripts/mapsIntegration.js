@@ -1,4 +1,9 @@
 // taking location from user
+const dotenv = require('dotenv');
+dotenv.config();
+bingMapsKey=process.env.bingMapsKey
+
+
 let location_position;
 let userLatitude;
 let userLongitude;
@@ -72,7 +77,7 @@ function printHospitals(hospital){
 
 // Function to search for hospitals using OpenStreetMap API
 function searchForHospitals(latitude, longitude, radius) {
-  var query = `[out:json][timeout:25];
+  let query = `[out:json][timeout:25];
                 (
                   node["amenity"="hospital"](around:${radius},${latitude},${longitude});
                   way["amenity"="hospital"](around:${radius},${latitude},${longitude});
@@ -80,8 +85,8 @@ function searchForHospitals(latitude, longitude, radius) {
                 );
                 out body;>;out skel qt;`;
 
-  var encodedQuery = encodeURIComponent(query);
-  var apiUrl = `https://overpass-api.de/api/interpreter?data=${encodedQuery}`;
+  let encodedQuery = encodeURIComponent(query);
+  let apiUrl = `https://overpass-api.de/api/interpreter?data=${encodedQuery}`;
 
   return fetch(apiUrl)
     .then(response => response.json())
@@ -92,16 +97,16 @@ function searchForHospitals(latitude, longitude, radius) {
 function addHospitalMarkers(map, hospitals) {
   hospitals.forEach(hospital => {
     // console.log(hospital)
-    var latitude = hospital.lat;
-    var longitude = hospital.lon;
+    let latitude = hospital.lat;
+    let longitude = hospital.lon;
 
     // Create a location using Bing Maps Location class
-    var location = new Microsoft.Maps.Location(latitude, longitude);
+    let location = new Microsoft.Maps.Location(latitude, longitude);
 
     // Create a pushpin for the hospital and add it to the map
 
 
-    var pinOptions = {
+    let pinOptions = {
       icon: '/images/icons/map_pinv2.png', // URL of the custom pin image
       anchor: new Microsoft.Maps.Point(12, 39), // Optional: Adjust the anchor point if needed
       title: hospital.tags.name,
@@ -110,7 +115,7 @@ function addHospitalMarkers(map, hospitals) {
 
 
 
-    var pushpin = new Microsoft.Maps.Pushpin(location, pinOptions);
+    let pushpin = new Microsoft.Maps.Pushpin(location, pinOptions);
     map.entities.push(pushpin);
     printHospitals(hospital)
   });
@@ -118,14 +123,14 @@ function addHospitalMarkers(map, hospitals) {
 
 // Initialize the Bing Map
 function initMap() {
-  var map = new Microsoft.Maps.Map('#map', {
+  let map = new Microsoft.Maps.Map('#map', {
     credentials: 'AipVvHKN8OtwiGPpTjMZYRhRa-lkk2-yakMlTaMgL8IX6LfApk8BvRuFLtDTw855',
     center: new Microsoft.Maps.Location(userLatitude, userLongitude), // Default center (San Francisco)
     zoom: 15 // Default zoom level
   });
 
 
-  var searchRadius = 7000; // Search radius in meters
+  let searchRadius = 7000; // Search radius in meters
   // Search for hospitals using OpenStreetMap API
   searchForHospitals(userLatitude, userLongitude, searchRadius)
     .then(hospitals => {
@@ -138,9 +143,9 @@ function initMap() {
 
 // Load the Bing Maps API asynchronously
 function loadBingMapsScript() {
-  var script = document.createElement('script');
+  let script = document.createElement('script');
   script.type = 'text/javascript';
-  script.src = 'https://www.bing.com/api/maps/mapcontrol?key=AipVvHKN8OtwiGPpTjMZYRhRa-lkk2-yakMlTaMgL8IX6LfApk8BvRuFLtDTw855&callback=initMap';
+  script.src = `https://www.bing.com/api/maps/mapcontrol?key=${bingMapsKey}&callback=initMap`;
   document.body.appendChild(script);
 }
 

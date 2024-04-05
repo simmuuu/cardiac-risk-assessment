@@ -39,7 +39,7 @@ include('partials/navbar',{ cssPath: '/css/navbar.css' }) %>
     let allPredictions = <%- JSON.stringify(allPredictions) %>;
     const tableBody = document.getElementById('tableBody');
     const additionalInfo = document.getElementById('additionalInfo');
-    console.log(allPredictions);
+    // console.log(allPredictions);
     tableBuilder(allPredictions);
 
     function tableBuilder(data) {
