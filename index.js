@@ -155,7 +155,7 @@ app.get('/analysis' , isLoggedin , async(req, res) => {
             console.error("Error user not found in database", error);
         }
     }
-    console.log(allPredictions)
+    // console.log(allPredictions)
     res.render('analysis',{allPredictions});
 })
 
